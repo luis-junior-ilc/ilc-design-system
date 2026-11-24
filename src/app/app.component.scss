@@ -7,11 +7,17 @@
 
 .showcase {
   min-height: 100vh;
-  padding: clamp(24px, 5vw, 64px);
+  padding: 0;
   box-sizing: border-box;
   background: var(--ilc-color-background);
   color: var(--ilc-color-text);
   transition: background-color .2s ease, color .2s ease;
+}
+
+.showcase__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--ilc-spacing-6) clamp(16px, 4vw, 40px) var(--ilc-spacing-8);
 }
 
 .showcase__header {
@@ -19,8 +25,7 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--ilc-spacing-6);
-  max-width: 1120px;
-  margin: 0 auto var(--ilc-spacing-8);
+  margin: 0 0 var(--ilc-spacing-6);
 }
 
 .eyebrow {
@@ -44,15 +49,13 @@ h3 { margin-bottom: var(--ilc-spacing-4); font-size: var(--ilc-font-size-md); te
 .intro, .showcase__section > p { color: var(--ilc-color-text-secondary); }
 
 .showcase__section {
-  max-width: 1120px;
-  margin: 0 auto var(--ilc-spacing-8);
+  margin: 0 0 var(--ilc-spacing-6);
 }
 
 .showcase__defer-placeholder { min-height: 96px; }
 
 .showcase__accordion {
-  max-width: 1120px;
-  margin: 0 auto var(--ilc-spacing-8);
+  margin: 0 0 var(--ilc-spacing-8);
 }
 
 .color-grid {

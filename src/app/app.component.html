@@ -2,259 +2,262 @@
   <ilc-header
     title="ILC Design System"
     subtitle="Grupo Mirassol · Angular 18"
+    [sticky]="true"
     [showThemeToggle]="true"
     [darkMode]="darkMode"
     (themeToggle)="toggleTheme()"
   />
 
-  <header class="showcase__header">
-    <div>
-      <p class="eyebrow">Identidade Visual &amp; Componentes</p>
-      <h1>ILC Design System</h1>
-      <p class="intro">Galeria interativa de componentes e tokens de design.</p>
-    </div>
-  </header>
+  <div class="showcase__container">
+    <header class="showcase__header">
+      <div>
+        <p class="eyebrow">Identidade Visual &amp; Biblioteca de Componentes</p>
+        <h1>ILC Design System</h1>
+        <p class="intro">Guia oficial de marca, tokens compartilhados e componentes Angular 18 para aplicações ILC.</p>
+      </div>
+    </header>
 
-  <ilc-accordion class="showcase__accordion">
-    <ilc-accordion-item title="Identidade Visual ILC (Brand Guidelines)" [expanded]="true">
-      <section class="showcase__section" aria-label="Diretrizes da marca ILC">
-        <app-brand-guidelines></app-brand-guidelines>
-      </section>
-    </ilc-accordion-item>
-
-    <ilc-accordion-item title="Marca &amp; Layout (Logo, Ribbon e Header)">
-      <section class="showcase__section" aria-label="Componentes de marca e layout">
-        <div class="color-grid">
-          <article class="color-card">
-            <h3>Logo completo (Claro / Auto)</h3>
-            <ilc-logo size="lg" [safeArea]="true" />
-          </article>
-          <article class="color-card">
-            <h3>Logo reduzido (Mark)</h3>
-            <ilc-logo variant="mark" size="lg" [safeArea]="true" />
-          </article>
-        </div>
-        <h3 style="margin-top: var(--ilc-spacing-6);">Brand Ribbon</h3>
-        <ilc-brand-ribbon height="md" [animated]="true" />
-      </section>
-    </ilc-accordion-item>
-
-    <ilc-accordion-item title="Exibição de Dados &amp; Navegação (Badge, Card, Tabs, Breadcrumb)">
-      <section class="showcase__section" aria-label="Exibição de dados e navegação">
-        <ilc-breadcrumb [items]="demoBreadcrumbs" />
-
-        <div style="margin-top: var(--ilc-spacing-4);">
-          <ilc-tabs [tabs]="demoTabs" [(activeTab)]="activeShowcaseTab" />
-        </div>
-
-        <div class="button-row" style="margin-top: var(--ilc-spacing-4);">
-          <ilc-badge tone="success" [dot]="true">NO PRAZO</ilc-badge>
-          <ilc-badge tone="brand" [dot]="true">EM ROTA</ilc-badge>
-          <ilc-badge tone="warning" [dot]="true">PENDENTE</ilc-badge>
-          <ilc-badge tone="danger" [dot]="true">CRÍTICO</ilc-badge>
-          <ilc-badge tone="primary" [outline]="true">COLETA</ilc-badge>
-          <ilc-badge tone="neutral">ARQUIVADO</ilc-badge>
-        </div>
-
-        <div class="color-grid" style="margin-top: var(--ilc-spacing-5);">
-          <ilc-card title="Card institucional" subtitle="Com faixa gradiente ILC" [accentRibbon]="true" [elevated]="true">
-            <p>Aba ativa selecionada: <strong>{{ activeShowcaseTab }}</strong></p>
-            <div ilcCardFooter>
-              <ilc-button size="1" variant="outline" icon="eye">Ver detalhes</ilc-button>
-            </div>
-          </ilc-card>
-        </div>
-      </section>
-    </ilc-accordion-item>
-
-    <ilc-accordion-item title="Feedback &amp; Estados (Alert, Empty State, Skeleton)">
-      <section class="showcase__section" aria-label="Feedback e estados">
-        <div style="display: grid; gap: var(--ilc-spacing-3);">
-          <ilc-alert tone="info" title="Atualização do Portal Integrator">
-            Novos indicadores de performance e rastreamento disponíveis para consulta.
-          </ilc-alert>
-          <ilc-alert tone="success" title="Comprovante auditado">
-            A viagem 102-39586-M foi validada sem divergências.
-          </ilc-alert>
-          <ilc-alert tone="warning" title="Prazo próximo do limite" [dismissible]="true">
-            Existem 3 coletas aguardando inserção de comprovante.
-          </ilc-alert>
-          <ilc-alert tone="danger" title="Falha na sincronização">
-            Não foi possível conectar ao ERP selecionado. Tente novamente.
-          </ilc-alert>
-        </div>
-
-        <div class="color-grid" style="margin-top: var(--ilc-spacing-5);">
-          <ilc-empty-state
-            title="Nenhuma viagem pendente"
-            description="Todas as operações filtradas estão em conformidade."
-            icon="truck"
-          >
-            <ilc-button size="1" variant="outline" icon="refresh">Atualizar lista</ilc-button>
-          </ilc-empty-state>
-
-          <ilc-card title="Carregamento (Skeleton)" subtitle="Placeholder de conteúdo">
-            <div style="display: grid; gap: var(--ilc-spacing-3);">
-              <ilc-skeleton variant="text" [lines]="3" />
-              <ilc-skeleton variant="rect" height="56px" />
-            </div>
-          </ilc-card>
-        </div>
-      </section>
-    </ilc-accordion-item>
-
-    <ilc-accordion-item title="Como usar em um projeto novo">
-      <section class="showcase__section">
-        <app-setup-guide></app-setup-guide>
-      </section>
-    </ilc-accordion-item>
-
-    <ilc-accordion-item title="Viagens">
-      <section class="showcase__section" aria-label="Lista de viagens prioritárias">
-        <app-api-info [entry]="apiInfo.trips[0]" />
-        <ilc-trips-table [trips]="trips" (actionRequested)="requestTripAction($event)" />
-      </section>
-    </ilc-accordion-item>
-
-    <ilc-accordion-item title="Botão">
-      <section class="showcase__section" aria-labelledby="colors-title">
-        <app-api-info [entry]="apiInfo.button[0]" />
-        <h2 id="colors-title">Cores e variantes</h2>
-        <p>Confira cada cor nos estilos sólido, contornado e texto.</p>
-        <div class="color-grid">
-          @for (color of colors; track color) {
-            <article class="color-card">
-              <h3>{{ color }}</h3>
-              <div class="button-row">
-                <ilc-button [color]="color">Continuar</ilc-button>
-                <ilc-button [color]="color" variant="outline">Editar</ilc-button>
-                <ilc-button [color]="color" variant="text">Detalhes</ilc-button>
-              </div>
-            </article>
-          }
-        </div>
-      </section>
-
-      <section class="showcase__section" aria-labelledby="sizes-title">
-        <h2 id="sizes-title">Tamanhos e estados</h2>
-        <div class="button-row button-row--align-center">
-          @for (size of sizes; track size) {
-            <ilc-button [size]="size">Tamanho {{ size }}</ilc-button>
-          }
-          <ilc-button [disabled]="true">Desabilitado</ilc-button>
-          <ilc-button [loading]="true">Salvando</ilc-button>
-        </div>
-      </section>
-    </ilc-accordion-item>
-
-    <ilc-accordion-item title="Ícones">
-      <section class="showcase__section" aria-labelledby="icons-title">
-        <app-api-info [entry]="apiInfo.icons[0]" />
-        <h2 id="icons-title">Ícones registrados</h2>
-        <div class="icon-grid">
-          @for (name of iconNames; track name) {
-            <div class="icon-card">
-              <ilc-icon [name]="name"></ilc-icon>
-              <span>{{ name }}</span>
-            </div>
-          }
-        </div>
-        <div class="button-row">
-          <ilc-button icon="save">Gravar</ilc-button>
-          <ilc-button icon="edit" variant="outline">Editar</ilc-button>
-          <ilc-button icon="delete" color="danger" variant="outline">Excluir</ilc-button>
-          <ilc-button icon="close" variant="icon" ariaLabel="Fechar"></ilc-button>
-        </div>
-      </section>
-    </ilc-accordion-item>
-
-    <ilc-accordion-item title="Tokens de design">
-      <section class="showcase__section" aria-labelledby="tokens-title">
-        <app-api-info [entry]="apiInfo.tokens[0]" />
-        <h2 id="tokens-title">Tokens compartilhados</h2>
-        <p>As cores, tipografia, espaçamentos e raios dos componentes vêm de propriedades CSS globais.</p>
-        <section class="token-group" aria-labelledby="token-colors-title">
-          <h3 id="token-colors-title">Cores</h3>
-          <div class="token-color-grid">
-            @for (token of sharedColorTokens; track token.property) {
-              <div class="token-color">
-                <span class="token-color__swatch" [style.background-color]="'var(' + token.property + ')'" aria-hidden="true"></span>
-                <span class="token-color__name">{{ token.name }}</span>
-                <code>{{ token.property }}</code>
-              </div>
-            }
-          </div>
+    <ilc-accordion class="showcase__accordion">
+      <ilc-accordion-item title="1. Como usar em um projeto novo" [expanded]="true">
+        <section class="showcase__section">
+          <app-setup-guide></app-setup-guide>
         </section>
+      </ilc-accordion-item>
 
-        <section class="token-group" aria-labelledby="token-typography-title">
-          <h3 id="token-typography-title">Tipografia</h3>
-          <div class="token-typography">
-            <div class="token-type-row">
-              <div class="token-type-row__meta"><strong>Institucional (Pirulen)</strong><code>--ilc-font-family-display</code></div>
-              <span class="token-type-sample" [style.font-family]="'var(--ilc-font-family-display)'">ILC INTEGRATOR</span>
+      <ilc-accordion-item title="2. Identidade Visual ILC (Brand Guidelines)">
+        <section class="showcase__section" aria-label="Diretrizes da marca ILC">
+          <app-brand-guidelines></app-brand-guidelines>
+        </section>
+      </ilc-accordion-item>
+
+      <ilc-accordion-item title="3. Tokens de design">
+        <section class="showcase__section" aria-labelledby="tokens-title">
+          <app-api-info [entry]="apiInfo.tokens[0]" />
+          <h2 id="tokens-title">Tokens compartilhados</h2>
+          <p>As cores, tipografia, espaçamentos e raios dos componentes vêm de propriedades CSS globais.</p>
+          <section class="token-group" aria-labelledby="token-colors-title">
+            <h3 id="token-colors-title">Cores</h3>
+            <div class="token-color-grid">
+              @for (token of sharedColorTokens; track token.property) {
+                <div class="token-color">
+                  <span class="token-color__swatch" [style.background-color]="'var(' + token.property + ')'" aria-hidden="true"></span>
+                  <span class="token-color__name">{{ token.name }}</span>
+                  <code>{{ token.property }}</code>
+                </div>
+              }
             </div>
-            <div class="token-type-row">
-              <div class="token-type-row__meta"><strong>Primária (Hind)</strong><code>--ilc-font-family</code></div>
-              <span class="token-type-sample" [style.font-family]="'var(--ilc-font-family)'">Aa Bb Cc 0123</span>
-            </div>
-            <div class="token-type-row">
-              <div class="token-type-row__meta"><strong>Secundária (Calibri)</strong><code>--ilc-font-family-secondary</code></div>
-              <span class="token-type-sample" [style.font-family]="'var(--ilc-font-family-secondary)'">Aa Bb Cc 0123</span>
-            </div>
-            @for (size of fontSizes; track size) {
+          </section>
+
+          <section class="token-group" aria-labelledby="token-typography-title">
+            <h3 id="token-typography-title">Tipografia</h3>
+            <div class="token-typography">
               <div class="token-type-row">
-                <div class="token-type-row__meta"><strong>{{ size }}</strong><code>--ilc-font-size-{{ size }}</code></div>
-                <span class="token-type-sample" [style.font-size]="'var(--ilc-font-size-' + size + ')'">Aa Bb Cc 0123</span>
+                <div class="token-type-row__meta"><strong>Institucional (Pirulen)</strong><code>--ilc-font-family-display</code></div>
+                <span class="token-type-sample" [style.font-family]="'var(--ilc-font-family-display)'">ILC INTEGRATOR</span>
               </div>
+              <div class="token-type-row">
+                <div class="token-type-row__meta"><strong>Primária (Hind)</strong><code>--ilc-font-family</code></div>
+                <span class="token-type-sample" [style.font-family]="'var(--ilc-font-family)'">Aa Bb Cc 0123</span>
+              </div>
+              <div class="token-type-row">
+                <div class="token-type-row__meta"><strong>Secundária (Calibri)</strong><code>--ilc-font-family-secondary</code></div>
+                <span class="token-type-sample" [style.font-family]="'var(--ilc-font-family-secondary)'">Aa Bb Cc 0123</span>
+              </div>
+              @for (size of fontSizes; track size) {
+                <div class="token-type-row">
+                  <div class="token-type-row__meta"><strong>{{ size }}</strong><code>--ilc-font-size-{{ size }}</code></div>
+                  <span class="token-type-sample" [style.font-size]="'var(--ilc-font-size-' + size + ')'">Aa Bb Cc 0123</span>
+                </div>
+              }
+            </div>
+          </section>
+
+          <section class="token-group" aria-labelledby="token-spacing-title">
+            <h3 id="token-spacing-title">Espaçamentos</h3>
+            <div class="token-spacing-grid">
+              @for (step of spacingSteps; track step) {
+                <div class="token-spacing">
+                  <div class="token-token-meta"><strong>Spacing {{ step }}</strong><code>--ilc-spacing-{{ step }}</code></div>
+                  <div class="token-spacing__track"><span class="token-spacing__bar" [style.width]="'var(--ilc-spacing-' + step + ')'" aria-hidden="true"></span></div>
+                </div>
+              }
+            </div>
+          </section>
+
+          <section class="token-group" aria-labelledby="token-radius-title">
+            <h3 id="token-radius-title">Raios</h3>
+            <div class="token-radius-grid">
+              @for (size of radiusSizes; track size) {
+                <div class="token-radius">
+                  <div class="token-token-meta"><strong>{{ size }}</strong><code>--ilc-radius-{{ size }}</code></div>
+                  <span class="token-radius__sample" [style.border-radius]="'var(--ilc-radius-' + size + ')'" aria-hidden="true"></span>
+                </div>
+              }
+            </div>
+          </section>
+        </section>
+      </ilc-accordion-item>
+
+      <ilc-accordion-item title="4. Marca &amp; Layout (Logo, Ribbon e Header)">
+        <section class="showcase__section" aria-label="Componentes de marca e layout">
+          <div class="color-grid">
+            <article class="color-card">
+              <h3>Logo completo (Claro / Auto)</h3>
+              <ilc-logo size="lg" [safeArea]="true" />
+            </article>
+            <article class="color-card">
+              <h3>Logo reduzido (Mark)</h3>
+              <ilc-logo variant="mark" size="lg" [safeArea]="true" />
+            </article>
+          </div>
+          <h3 style="margin-top: var(--ilc-spacing-6);">Brand Ribbon</h3>
+          <ilc-brand-ribbon height="md" [animated]="true" />
+        </section>
+      </ilc-accordion-item>
+
+      <ilc-accordion-item title="5. Botão">
+        <section class="showcase__section" aria-labelledby="colors-title">
+          <app-api-info [entry]="apiInfo.button[0]" />
+          <h2 id="colors-title">Cores e variantes</h2>
+          <p>Confira cada cor nos estilos sólido, contornado e texto.</p>
+          <div class="color-grid">
+            @for (color of colors; track color) {
+              <article class="color-card">
+                <h3>{{ color }}</h3>
+                <div class="button-row">
+                  <ilc-button [color]="color">Continuar</ilc-button>
+                  <ilc-button [color]="color" variant="outline">Editar</ilc-button>
+                  <ilc-button [color]="color" variant="text">Detalhes</ilc-button>
+                </div>
+              </article>
             }
           </div>
         </section>
 
-        <section class="token-group" aria-labelledby="token-spacing-title">
-          <h3 id="token-spacing-title">Espaçamentos</h3>
-          <div class="token-spacing-grid">
-            @for (step of spacingSteps; track step) {
-              <div class="token-spacing">
-                <div class="token-token-meta"><strong>Spacing {{ step }}</strong><code>--ilc-spacing-{{ step }}</code></div>
-                <div class="token-spacing__track"><span class="token-spacing__bar" [style.width]="'var(--ilc-spacing-' + step + ')'" aria-hidden="true"></span></div>
+        <section class="showcase__section" aria-labelledby="sizes-title">
+          <h2 id="sizes-title">Tamanhos e estados</h2>
+          <div class="button-row button-row--align-center">
+            @for (size of sizes; track size) {
+              <ilc-button [size]="size">Tamanho {{ size }}</ilc-button>
+            }
+            <ilc-button [disabled]="true">Desabilitado</ilc-button>
+            <ilc-button [loading]="true">Salvando</ilc-button>
+          </div>
+        </section>
+      </ilc-accordion-item>
+
+      <ilc-accordion-item title="6. Ícones">
+        <section class="showcase__section" aria-labelledby="icons-title">
+          <app-api-info [entry]="apiInfo.icons[0]" />
+          <h2 id="icons-title">Ícones registrados</h2>
+          <div class="icon-grid">
+            @for (name of iconNames; track name) {
+              <div class="icon-card">
+                <ilc-icon [name]="name"></ilc-icon>
+                <span>{{ name }}</span>
               </div>
             }
           </div>
-        </section>
-
-        <section class="token-group" aria-labelledby="token-radius-title">
-          <h3 id="token-radius-title">Raios</h3>
-          <div class="token-radius-grid">
-            @for (size of radiusSizes; track size) {
-              <div class="token-radius">
-                <div class="token-token-meta"><strong>{{ size }}</strong><code>--ilc-radius-{{ size }}</code></div>
-                <span class="token-radius__sample" [style.border-radius]="'var(--ilc-radius-' + size + ')'" aria-hidden="true"></span>
-              </div>
-            }
+          <div class="button-row">
+            <ilc-button icon="save">Gravar</ilc-button>
+            <ilc-button icon="edit" variant="outline">Editar</ilc-button>
+            <ilc-button icon="delete" color="danger" variant="outline">Excluir</ilc-button>
+            <ilc-button icon="close" variant="icon" ariaLabel="Fechar"></ilc-button>
           </div>
         </section>
-      </section>
-    </ilc-accordion-item>
+      </ilc-accordion-item>
 
-    <ilc-accordion-item title="Formulários">
-      <section class="showcase__section" aria-labelledby="forms-title">
-        <h2 id="forms-title">Controles de formulário</h2>
-        @defer (on immediate) {
-          <ilc-material-forms-playground></ilc-material-forms-playground>
-        } @placeholder {
-          <div class="showcase__defer-placeholder" aria-hidden="true"></div>
-        }
-      </section>
-    </ilc-accordion-item>
+      <ilc-accordion-item title="7. Formulários">
+        <section class="showcase__section" aria-labelledby="forms-title">
+          <h2 id="forms-title">Controles de formulário</h2>
+          @defer (on immediate) {
+            <ilc-material-forms-playground></ilc-material-forms-playground>
+          } @placeholder {
+            <div class="showcase__defer-placeholder" aria-hidden="true"></div>
+          }
+        </section>
+      </ilc-accordion-item>
 
-    <ilc-accordion-item title="Dropdown, carregamento, modais e indicadores">
-      <section class="showcase__section" aria-labelledby="extras-title">
-        <h2 id="extras-title">Componentes de apoio</h2>
+      <ilc-accordion-item title="8. Exibição de Dados &amp; Navegação (Badge, Card, Tabs, Breadcrumb)">
+        <section class="showcase__section" aria-label="Exibição de dados e navegação">
+          <ilc-breadcrumb [items]="demoBreadcrumbs" />
+
+          <div style="margin-top: var(--ilc-spacing-4);">
+            <ilc-tabs [tabs]="demoTabs" [(activeTab)]="activeShowcaseTab" />
+          </div>
+
+          <div class="button-row" style="margin-top: var(--ilc-spacing-4);">
+            <ilc-badge tone="success" [dot]="true">NO PRAZO</ilc-badge>
+            <ilc-badge tone="brand" [dot]="true">EM ROTA</ilc-badge>
+            <ilc-badge tone="warning" [dot]="true">PENDENTE</ilc-badge>
+            <ilc-badge tone="danger" [dot]="true">CRÍTICO</ilc-badge>
+            <ilc-badge tone="primary" [outline]="true">COLETA</ilc-badge>
+            <ilc-badge tone="neutral">ARQUIVADO</ilc-badge>
+          </div>
+
+          <div class="color-grid" style="margin-top: var(--ilc-spacing-5);">
+            <ilc-card title="Card institucional" subtitle="Com faixa gradiente ILC" [accentRibbon]="true" [elevated]="true">
+              <p>Aba ativa selecionada: <strong>{{ activeShowcaseTab }}</strong></p>
+              <div ilcCardFooter>
+                <ilc-button size="1" variant="outline" icon="eye">Ver detalhes</ilc-button>
+              </div>
+            </ilc-card>
+          </div>
+        </section>
+      </ilc-accordion-item>
+
+      <ilc-accordion-item title="9. Feedback &amp; Estados (Alert, Empty State, Skeleton)">
+        <section class="showcase__section" aria-label="Feedback e estados">
+          <div style="display: grid; gap: var(--ilc-spacing-3);">
+            <ilc-alert tone="info" title="Atualização do Portal Integrator">
+              Novos indicadores de performance e rastreamento disponíveis para consulta.
+            </ilc-alert>
+            <ilc-alert tone="success" title="Comprovante auditado">
+              A viagem 102-39586-M foi validada sem divergências.
+            </ilc-alert>
+            <ilc-alert tone="warning" title="Prazo próximo do limite" [dismissible]="true">
+              Existem 3 coletas aguardando inserção de comprovante.
+            </ilc-alert>
+            <ilc-alert tone="danger" title="Falha na sincronização">
+              Não foi possível conectar ao ERP selecionado. Tente novamente.
+            </ilc-alert>
+          </div>
+
+          <div class="color-grid" style="margin-top: var(--ilc-spacing-5);">
+            <ilc-empty-state
+              title="Nenhuma viagem pendente"
+              description="Todas as operações filtradas estão em conformidade."
+              icon="truck"
+            >
+              <ilc-button size="1" variant="outline" icon="refresh">Atualizar lista</ilc-button>
+            </ilc-empty-state>
+
+            <ilc-card title="Carregamento (Skeleton)" subtitle="Placeholder de conteúdo">
+              <div style="display: grid; gap: var(--ilc-spacing-3);">
+                <ilc-skeleton variant="text" [lines]="3" />
+                <ilc-skeleton variant="rect" height="56px" />
+              </div>
+            </ilc-card>
+          </div>
+        </section>
+      </ilc-accordion-item>
+
+      <ilc-accordion-item title="10. Dropdown, carregamento, modais e indicadores">
+        <section class="showcase__section" aria-labelledby="extras-title">
+          <h2 id="extras-title">Componentes de apoio</h2>
           <app-showcase-extras></app-showcase-extras>
           <div class="showcase__defer-placeholder" aria-hidden="true"></div>
-      </section>
-    </ilc-accordion-item>
-  </ilc-accordion>
+        </section>
+      </ilc-accordion-item>
 
-  <footer class="showcase__footer">Cada item agrupa exemplos do tipo de componente correspondente.</footer>
+      <ilc-accordion-item title="11. Viagens (Módulo Logístico)">
+        <section class="showcase__section" aria-label="Lista de viagens prioritárias">
+          <app-api-info [entry]="apiInfo.trips[0]" />
+          <ilc-trips-table [trips]="trips" (actionRequested)="requestTripAction($event)" />
+        </section>
+      </ilc-accordion-item>
+    </ilc-accordion>
+
+    <footer class="showcase__footer">ILC Design System · Grupo Mirassol — Cada item agrupa os exemplos e especificações da categoria.</footer>
+  </div>
 </main>
