@@ -1,0 +1,51 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$ilc-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$cyan-palette,
+    tertiary: mat.$yellow-palette,
+  ),
+  typography: (
+    plain-family: "Hind, Calibri, Roboto, Arial, sans-serif",
+    brand-family: "Pirulen, Orbitron, Eurostile, sans-serif",
+  ),
+  density: (
+    scale: 0,
+  ),
+));
+
+$ilc-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$cyan-palette,
+    tertiary: mat.$yellow-palette,
+  ),
+  typography: (
+    plain-family: "Hind, Calibri, Roboto, Arial, sans-serif",
+    brand-family: "Pirulen, Orbitron, Eurostile, sans-serif",
+  ),
+  density: (
+    scale: 0,
+  ),
+));
+
+:root {
+  @include mat.all-component-themes($ilc-light-theme);
+  @include mat.all-component-typographies($ilc-light-theme);
+}
+
+[data-theme='dark'] {
+  @include mat.all-component-colors($ilc-dark-theme);
+
+  --mat-app-background-color: var(--ilc-color-background);
+  --mat-app-text-color: var(--ilc-color-text);
+  --mdc-dialog-container-color: var(--ilc-color-surface);
+  --mat-select-panel-background-color: var(--ilc-color-surface-elevated);
+  --mat-autocomplete-background-color: var(--ilc-color-surface-elevated);
+  --mat-menu-container-color: var(--ilc-color-surface-elevated);
+  --mat-table-background-color: var(--ilc-color-surface);
+  --mat-paginator-container-background-color: var(--ilc-color-surface);
+}
