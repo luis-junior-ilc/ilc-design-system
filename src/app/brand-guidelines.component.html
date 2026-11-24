@@ -1,0 +1,64 @@
+<div class="brand-guide">
+  <section class="brand-guide__block">
+    <h3>Logotipo &amp; Área de Segurança</h3>
+    <p>O emblema ILC pode ser aplicado na versão completa ou reduzida, respeitando sempre a área de proteção ao redor da marca.</p>
+    <div class="brand-guide__logo-grid">
+      <div class="brand-guide__logo-stage brand-guide__logo-stage--light">
+        <span class="brand-guide__caption">Fundo claro · Área de proteção</span>
+        <div class="brand-guide__safe-box">
+          <ilc-logo size="lg" theme="light" [safeArea]="true" />
+        </div>
+      </div>
+      <div class="brand-guide__logo-stage brand-guide__logo-stage--dark">
+        <span class="brand-guide__caption">Fundo escuro (Deep Navy)</span>
+        <div class="brand-guide__safe-box brand-guide__safe-box--dark">
+          <ilc-logo size="lg" theme="dark" [safeArea]="true" />
+        </div>
+      </div>
+      <div class="brand-guide__logo-stage brand-guide__logo-stage--light">
+        <span class="brand-guide__caption">Símbolo reduzido (mín. 70px / 15mm)</span>
+        <ilc-logo variant="mark" size="lg" [safeArea]="true" />
+      </div>
+    </div>
+  </section>
+
+  <section class="brand-guide__block">
+    <h3>Paleta Oficial (BrandBook ILC)</h3>
+    <div class="brand-guide__swatches">
+      @for (color of brandColors; track color.hex) {
+        <div class="brand-guide__swatch">
+          <div
+            class="brand-guide__swatch-color"
+            [style.background-color]="color.hex"
+            [class.brand-guide__swatch-color--light]="color.textLight"
+          >
+            <strong>{{ color.hex }}</strong>
+          </div>
+          <div class="brand-guide__swatch-meta">
+            <strong>{{ color.name }}</strong>
+            <span>Pantone: {{ color.pantone }}</span>
+            <span>RGB: {{ color.rgb }}</span>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="brand-guide__ribbon-box">
+      <span>Ribbon de cores oficial (gradiente Ciano → Verde → Amarelo)</span>
+      <ilc-brand-ribbon height="md" />
+    </div>
+  </section>
+
+  <div class="brand-guide__two-col">
+    <ilc-card title="Tom de Voz — O Líder" subtitle="Diretrizes de comunicação ILC">
+      <p>Tom de voz firme, assertivo e de credibilidade. Linguagem adaptada ao universo corporativo e logístico, unindo inovação, flexibilidade e empatia na solução de problemas.</p>
+    </ilc-card>
+
+    <ilc-card title="Usos Incorretos" subtitle="Preservação da integridade da marca">
+      <ul class="brand-guide__rules">
+        @for (rule of incorrectUses; track rule) {
+          <li>{{ rule }}</li>
+        }
+      </ul>
+    </ilc-card>
+  </div>
+</div>

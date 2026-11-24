@@ -16,6 +16,12 @@
   </header>
 
   <ilc-accordion class="showcase__accordion">
+    <ilc-accordion-item title="Identidade Visual ILC (Brand Guidelines)" [expanded]="true">
+      <section class="showcase__section" aria-label="Diretrizes da marca ILC">
+        <app-brand-guidelines></app-brand-guidelines>
+      </section>
+    </ilc-accordion-item>
+
     <ilc-accordion-item title="Marca &amp; Layout (Logo, Ribbon e Header)">
       <section class="showcase__section" aria-label="Componentes de marca e layout">
         <div class="color-grid">
@@ -97,7 +103,7 @@
       </section>
     </ilc-accordion-item>
 
-    <ilc-accordion-item title="Como usar em um projeto novo" [expanded]="true">
+    <ilc-accordion-item title="Como usar em um projeto novo">
       <section class="showcase__section">
         <app-setup-guide></app-setup-guide>
       </section>

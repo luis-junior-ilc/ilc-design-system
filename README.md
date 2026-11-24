@@ -51,15 +51,37 @@ import { IlcButtonComponent } from '@grupo-mirassol/ilc-design-system';
 export class AppComponent {}
 ```
 
-## Design tokens, ícones e botão
+## Design tokens, tipografia, ícones e tema Material 18
 
-Carregue os tokens uma vez nos estilos globais da aplicação consumidora:
+Carregue os tokens e o tema oficial da ILC (Light & Dark) nos estilos globais da aplicação consumidora:
 
 ```scss
 @use '@grupo-mirassol/ilc-design-system/tokens/ilc-tokens';
+@use '@grupo-mirassol/ilc-design-system/tokens/ilc-material-theme';
 ```
 
-O botão aceita `size` (`1`, `2` ou `3`), `color` (`primary`, `secondary`, `success`, `warning`, `danger` ou `info`), `variant` (`solid`, `outline`, `text` ou `icon`), `disabled`, `loading` e `type`. Os ícones incluídos são `save`, `edit`, `delete`, `search`, `add` e `close`.
+Para o tema escuro, defina `data-theme="dark"` em um elemento ancestral (como `<html>` ou `<body>`). Os tokens aceitam sobrescrita pela aplicação para personalizar a identidade visual.
+
+### Tipografia oficial (BrandBook ILC)
+- **Institucional (`--ilc-font-family-display`):** `Pirulen` (fallback geométrico `Orbitron`, `Eurostile`, `sans-serif`) para títulos e chamadas.
+- **Primária (`--ilc-font-family`):** `Hind` (`300`, `400`, `500`, `600`, `700`) para interface e textos comerciais.
+- **Secundária (`--ilc-font-family-secondary`):** `Calibri` para documentos.
+
+### Botões e ícones
+O botão (`<ilc-button>`) aceita `size` (`1`, `2` ou `3`), `color` (`primary`, `secondary`, `brand`, `success`, `warning`, `danger` ou `info`), `variant` (`solid`, `outline`, `text` ou `icon`), `disabled`, `loading` e `type`.
+
+Os ícones SVG registrados no `<ilc-icon>` incluem: `save`, `edit`, `delete`, `search`, `add`, `close`, `truck`, `package`, `download`, `upload`, `filter`, `check`, `alert`, `info`, `calendar`, `user`, `menu`, `chevron-down`, `chevron-right`, `refresh` e `eye`.
+
+### Componentes de Marca, Layout, Navegação e Feedback
+- `<ilc-logo>` (`variant="full | mark"`, `theme="auto | light | dark"`, `size="sm | md | lg"`, `[safeArea]="true"`).
+- `<ilc-brand-ribbon>` (`height="xs | sm | md"`, `[animated]="true"`).
+- `<ilc-header>` (`title`, `subtitle`, `variant="navy | surface"`, `[showRibbon]="true"`, `[showThemeToggle]="true"`).
+- `<ilc-badge>` (`tone="neutral | primary | brand | success | warning | danger | info"`, `[dot]="true"`, `[outline]="true"`).
+- `<ilc-card>` (`title`, `subtitle`, `[accentRibbon]="true"`, `[elevated]="true"`, slots `[ilcCardActions]` e `[ilcCardFooter]`).
+- `<ilc-tabs>` (`[tabs]`, `[(activeTab)]`) e `<ilc-breadcrumb>` (`[items]`, `(itemClick)`).
+- `<ilc-alert>` (`tone="info | success | warning | danger"`, `title`, `[dismissible]="true"`).
+- `<ilc-empty-state>` (`title`, `description`, `icon`).
+- `<ilc-skeleton>` (`variant="text | rect | circle"`, `[lines]="3"`).
 
 ```html
 <ilc-button icon="save" color="primary" size="2">Gravar</ilc-button>

@@ -27,11 +27,12 @@ import { MaterialFormsPlaygroundComponent } from '../../projects/ilc-ui/src/lib/
 import { ShowcaseExtrasComponent } from './showcase-extras.component';
 import { SetupGuideComponent } from './setup-guide.component';
 import { ApiInfoComponent } from './api-info.component';
+import { BrandGuidelinesComponent } from './brand-guidelines.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IlcAccordionComponent, IlcAccordionItemComponent, IlcAlertComponent, IlcBadgeComponent, IlcBrandRibbonComponent, IlcBreadcrumbComponent, IlcButtonComponent, IlcCardComponent, IlcEmptyStateComponent, IlcHeaderComponent, IlcIconComponent, IlcLogoComponent, IlcSkeletonComponent, IlcTabsComponent, IlcTripsTableComponent, MaterialFormsPlaygroundComponent, ShowcaseExtrasComponent, SetupGuideComponent, ApiInfoComponent],
+  imports: [IlcAccordionComponent, IlcAccordionItemComponent, IlcAlertComponent, IlcBadgeComponent, IlcBrandRibbonComponent, IlcBreadcrumbComponent, IlcButtonComponent, IlcCardComponent, IlcEmptyStateComponent, IlcHeaderComponent, IlcIconComponent, IlcLogoComponent, IlcSkeletonComponent, IlcTabsComponent, IlcTripsTableComponent, MaterialFormsPlaygroundComponent, ShowcaseExtrasComponent, SetupGuideComponent, ApiInfoComponent, BrandGuidelinesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
