@@ -199,7 +199,7 @@
             <ilc-card title="Card institucional" subtitle="Com faixa gradiente ILC" [accentRibbon]="true" [elevated]="true">
               <p>Aba ativa selecionada: <strong>{{ activeShowcaseTab }}</strong></p>
               <div ilcCardFooter>
-                <ilc-button size="1" variant="outline" icon="eye">Ver detalhes</ilc-button>
+                <ilc-button [size]="1" variant="outline" icon="eye">Ver detalhes</ilc-button>
               </div>
             </ilc-card>
           </div>
@@ -229,7 +229,7 @@
               description="Todas as operações filtradas estão em conformidade."
               icon="truck"
             >
-              <ilc-button size="1" variant="outline" icon="refresh">Atualizar lista</ilc-button>
+              <ilc-button [size]="1" variant="outline" icon="refresh">Atualizar lista</ilc-button>
             </ilc-empty-state>
 
             <ilc-card title="Carregamento (Skeleton)" subtitle="Placeholder de conteúdo">
