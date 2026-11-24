@@ -22,3 +22,6 @@ export * from './lib/data-display/ilc-badge.component';
 export * from './lib/data-display/ilc-card.component';
 export * from './lib/navigation/ilc-tabs.component';
 export * from './lib/navigation/ilc-breadcrumb.component';
+export * from './lib/feedback/ilc-alert.component';
+export * from './lib/feedback/ilc-empty-state.component';
+export * from './lib/feedback/ilc-skeleton.component';

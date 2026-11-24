@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import {
   IlcAccordionComponent,
   IlcAccordionItemComponent,
+  IlcAlertComponent,
   IlcBadgeComponent,
   IlcBrandRibbonComponent,
   IlcBreadcrumbComponent,
@@ -11,10 +12,12 @@ import {
   IlcButtonComponent,
   IlcCardComponent,
   IlcDialogService,
+  IlcEmptyStateComponent,
   IlcHeaderComponent,
   IlcIconComponent,
   IlcIconName,
   IlcLogoComponent,
+  IlcSkeletonComponent,
   IlcTabItem,
   IlcTabsComponent,
   IlcTrip,
@@ -28,7 +31,7 @@ import { ApiInfoComponent } from './api-info.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IlcAccordionComponent, IlcAccordionItemComponent, IlcBadgeComponent, IlcBrandRibbonComponent, IlcBreadcrumbComponent, IlcButtonComponent, IlcCardComponent, IlcHeaderComponent, IlcIconComponent, IlcLogoComponent, IlcTabsComponent, IlcTripsTableComponent, MaterialFormsPlaygroundComponent, ShowcaseExtrasComponent, SetupGuideComponent, ApiInfoComponent],
+  imports: [IlcAccordionComponent, IlcAccordionItemComponent, IlcAlertComponent, IlcBadgeComponent, IlcBrandRibbonComponent, IlcBreadcrumbComponent, IlcButtonComponent, IlcCardComponent, IlcEmptyStateComponent, IlcHeaderComponent, IlcIconComponent, IlcLogoComponent, IlcSkeletonComponent, IlcTabsComponent, IlcTripsTableComponent, MaterialFormsPlaygroundComponent, ShowcaseExtrasComponent, SetupGuideComponent, ApiInfoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

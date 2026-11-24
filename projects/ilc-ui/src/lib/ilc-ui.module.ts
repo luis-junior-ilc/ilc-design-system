@@ -10,6 +10,9 @@ import { IlcBadgeComponent } from './data-display/ilc-badge.component';
 import { IlcCardComponent } from './data-display/ilc-card.component';
 import { IlcTabsComponent } from './navigation/ilc-tabs.component';
 import { IlcBreadcrumbComponent } from './navigation/ilc-breadcrumb.component';
+import { IlcAlertComponent } from './feedback/ilc-alert.component';
+import { IlcEmptyStateComponent } from './feedback/ilc-empty-state.component';
+import { IlcSkeletonComponent } from './feedback/ilc-skeleton.component';
 
 @NgModule({
   imports: [
@@ -24,6 +27,9 @@ import { IlcBreadcrumbComponent } from './navigation/ilc-breadcrumb.component';
     IlcCardComponent,
     IlcTabsComponent,
     IlcBreadcrumbComponent,
+    IlcAlertComponent,
+    IlcEmptyStateComponent,
+    IlcSkeletonComponent,
   ],
   exports: [
     IlcButtonComponent,
@@ -37,6 +43,9 @@ import { IlcBreadcrumbComponent } from './navigation/ilc-breadcrumb.component';
     IlcCardComponent,
     IlcTabsComponent,
     IlcBreadcrumbComponent,
+    IlcAlertComponent,
+    IlcEmptyStateComponent,
+    IlcSkeletonComponent,
   ]
 })
 export class IlcUiModule { }

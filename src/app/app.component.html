@@ -61,6 +61,42 @@
       </section>
     </ilc-accordion-item>
 
+    <ilc-accordion-item title="Feedback &amp; Estados (Alert, Empty State, Skeleton)">
+      <section class="showcase__section" aria-label="Feedback e estados">
+        <div style="display: grid; gap: var(--ilc-spacing-3);">
+          <ilc-alert tone="info" title="Atualização do Portal Integrator">
+            Novos indicadores de performance e rastreamento disponíveis para consulta.
+          </ilc-alert>
+          <ilc-alert tone="success" title="Comprovante auditado">
+            A viagem 102-39586-M foi validada sem divergências.
+          </ilc-alert>
+          <ilc-alert tone="warning" title="Prazo próximo do limite" [dismissible]="true">
+            Existem 3 coletas aguardando inserção de comprovante.
+          </ilc-alert>
+          <ilc-alert tone="danger" title="Falha na sincronização">
+            Não foi possível conectar ao ERP selecionado. Tente novamente.
+          </ilc-alert>
+        </div>
+
+        <div class="color-grid" style="margin-top: var(--ilc-spacing-5);">
+          <ilc-empty-state
+            title="Nenhuma viagem pendente"
+            description="Todas as operações filtradas estão em conformidade."
+            icon="truck"
+          >
+            <ilc-button size="1" variant="outline" icon="refresh">Atualizar lista</ilc-button>
+          </ilc-empty-state>
+
+          <ilc-card title="Carregamento (Skeleton)" subtitle="Placeholder de conteúdo">
+            <div style="display: grid; gap: var(--ilc-spacing-3);">
+              <ilc-skeleton variant="text" [lines]="3" />
+              <ilc-skeleton variant="rect" height="56px" />
+            </div>
+          </ilc-card>
+        </div>
+      </section>
+    </ilc-accordion-item>
+
     <ilc-accordion-item title="Como usar em um projeto novo" [expanded]="true">
       <section class="showcase__section">
         <app-setup-guide></app-setup-guide>

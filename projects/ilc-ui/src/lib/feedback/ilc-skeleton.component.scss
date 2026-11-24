@@ -1,0 +1,43 @@
+:host {
+  display: block;
+}
+
+.ilc-skeleton-group {
+  display: grid;
+  gap: var(--ilc-spacing-2, 8px);
+}
+
+.ilc-skeleton {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--ilc-color-border) 55%, var(--ilc-color-surface)) 25%,
+    color-mix(in srgb, var(--ilc-color-primary) 12%, var(--ilc-color-surface)) 50%,
+    color-mix(in srgb, var(--ilc-color-border) 55%, var(--ilc-color-surface)) 75%
+  );
+  background-size: 200% 100%;
+  animation: ilc-skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+.ilc-skeleton--text {
+  border-radius: var(--ilc-radius-sm, 4px);
+}
+
+.ilc-skeleton--rect {
+  border-radius: var(--ilc-radius-md, 8px);
+}
+
+.ilc-skeleton--circle {
+  border-radius: 50%;
+}
+
+@keyframes ilc-skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ilc-skeleton {
+    animation: none;
+  }
+}

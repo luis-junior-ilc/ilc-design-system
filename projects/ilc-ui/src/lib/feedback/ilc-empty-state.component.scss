@@ -1,0 +1,51 @@
+:host {
+  display: block;
+}
+
+.ilc-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ilc-spacing-2, 8px);
+  padding: var(--ilc-spacing-8, 32px) var(--ilc-spacing-5, 20px);
+  border: 1px dashed var(--ilc-color-border);
+  border-radius: var(--ilc-radius-md, 8px);
+  background: var(--ilc-color-surface);
+  text-align: center;
+}
+
+.ilc-empty-state__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--ilc-spacing-1, 4px);
+  border-radius: 50%;
+  background: var(--ilc-color-primary-subtle);
+  color: var(--ilc-color-primary);
+  font-size: 22px;
+}
+
+.ilc-empty-state__title {
+  margin: 0;
+  color: var(--ilc-color-text);
+  font-size: var(--ilc-font-size-md, 1rem);
+  font-weight: var(--ilc-font-weight-semibold, 600);
+}
+
+.ilc-empty-state__description {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--ilc-color-text-secondary);
+  font-size: var(--ilc-font-size-sm, 0.875rem);
+  line-height: var(--ilc-line-height-normal, 1.5);
+}
+
+.ilc-empty-state__actions {
+  margin-top: var(--ilc-spacing-2, 8px);
+}
+
+.ilc-empty-state__actions:empty {
+  display: none;
+}
