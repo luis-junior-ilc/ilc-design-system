@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
   IlcAccordionComponent,
@@ -24,12 +25,14 @@ import { ApiInfoComponent } from './api-info.component';
 })
 export class AppComponent {
   private readonly dialogs = inject(IlcDialogService);
+  private readonly document = inject(DOCUMENT);
   darkMode = false;
   readonly colors: IlcButtonColor[] = ['primary', 'secondary', 'success', 'warning', 'danger', 'info'];
   readonly sharedColorTokens = [
     { name: 'Primary', property: '--ilc-color-primary' },
     { name: 'Primary hover', property: '--ilc-color-primary-hover' },
-    { name: 'Secondary', property: '--ilc-color-secondary' },
+    { name: 'Primary subtle', property: '--ilc-color-primary-subtle' },
+    { name: 'Secondary (Navy)', property: '--ilc-color-secondary' },
     { name: 'Secondary hover', property: '--ilc-color-secondary-hover' },
     { name: 'Success', property: '--ilc-color-success' },
     { name: 'Success hover', property: '--ilc-color-success-hover' },
@@ -39,14 +42,21 @@ export class AppComponent {
     { name: 'Danger hover', property: '--ilc-color-danger-hover' },
     { name: 'Info', property: '--ilc-color-info' },
     { name: 'Info hover', property: '--ilc-color-info-hover' },
-    { name: 'ILC ciano', property: '--ilc-color-brand-cyan' },
-    { name: 'ILC amarelo', property: '--ilc-color-brand-yellow' },
-    { name: 'ILC verde', property: '--ilc-color-brand-green' },
-    { name: 'ILC cinza', property: '--ilc-color-brand-gray' },
+    { name: 'ILC Ciano (P 118-6 C)', property: '--ilc-color-brand-cyan' },
+    { name: 'ILC Ciano Bright', property: '--ilc-color-brand-cyan-bright' },
+    { name: 'ILC Amarelo (Yellow 012)', property: '--ilc-color-brand-yellow' },
+    { name: 'ILC Ouro (109 C)', property: '--ilc-color-brand-gold' },
+    { name: 'ILC Verde (347 C)', property: '--ilc-color-brand-green' },
+    { name: 'ILC Verde Folha (7740 C)', property: '--ilc-color-brand-green-leaf' },
+    { name: 'ILC Navy', property: '--ilc-color-brand-navy' },
+    { name: 'ILC Navy Deep', property: '--ilc-color-brand-navy-deep' },
+    { name: 'ILC Cinza', property: '--ilc-color-brand-gray' },
     { name: 'On primary', property: '--ilc-color-on-primary' },
+    { name: 'On secondary', property: '--ilc-color-on-secondary' },
     { name: 'On warning', property: '--ilc-color-on-warning' },
     { name: 'Background', property: '--ilc-color-background' },
     { name: 'Surface', property: '--ilc-color-surface' },
+    { name: 'Surface elevated', property: '--ilc-color-surface-elevated' },
     { name: 'Text', property: '--ilc-color-text' },
     { name: 'Text secondary', property: '--ilc-color-text-secondary' },
     { name: 'Border', property: '--ilc-color-border' }
@@ -92,6 +102,7 @@ export class AppComponent {
 
   toggleTheme(): void {
     this.darkMode = !this.darkMode;
+    this.document.documentElement.setAttribute('data-theme', this.darkMode ? 'dark' : 'light');
   }
 
   requestTripAction(trip: IlcTrip): void {

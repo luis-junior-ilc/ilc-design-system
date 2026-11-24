@@ -2,5 +2,13 @@
 @use '../projects/ilc-ui/src/lib/tokens/tokens';
 @import '@angular/material/prebuilt-themes/azure-blue.css';
 
-html, body { min-height: 100%; }
-body { margin: 0; font-family: Roboto, 'Helvetica Neue', sans-serif; }
+html, body {
+  min-height: 100%;
+  background: var(--ilc-color-background);
+  color: var(--ilc-color-text);
+}
+
+body {
+  margin: 0;
+  font-family: var(--ilc-font-family, Roboto, 'Helvetica Neue', sans-serif);
+}

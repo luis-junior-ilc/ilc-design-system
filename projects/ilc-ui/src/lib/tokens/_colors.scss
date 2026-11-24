@@ -1,33 +1,105 @@
 :root {
-  --ilc-color-primary: #1976d2;
-  --ilc-color-primary-hover: #1565c0;
-  --ilc-color-secondary: #6c757d;
-  --ilc-color-secondary-hover: #5c636a;
-  --ilc-color-success: #2e7d32;
-  --ilc-color-success-hover: #256628;
-  --ilc-color-warning: #ed6c02;
-  --ilc-color-warning-hover: #c95b00;
-  --ilc-color-danger: #d32f2f;
-  --ilc-color-danger-hover: #b71c1c;
-  --ilc-color-info: #0288d1;
-  --ilc-color-info-hover: #0277bd;
-  --ilc-color-brand-cyan: #00a9ce;
-  --ilc-color-brand-yellow: #ffdf00;
-  --ilc-color-brand-green: #00843d;
+  color-scheme: light;
+
+  /* Brand primitives (BrandBook ILC & Grupo Mirassol) */
+  --ilc-color-brand-cyan: #07b1d6;
+  --ilc-color-brand-cyan-bright: #00dcdb;
+  --ilc-color-brand-yellow: #ffe109;
+  --ilc-color-brand-gold: #fdcf02;
+  --ilc-color-brand-green: #00943e;
+  --ilc-color-brand-green-leaf: #389236;
+  --ilc-color-brand-navy: #0e2841;
+  --ilc-color-brand-navy-deep: #0b1929;
   --ilc-color-brand-gray: #515052;
-  --ilc-color-on-primary: #fff;
-  --ilc-color-on-warning: #212121;
-  --ilc-color-background: #fff;
-  --ilc-color-surface: #f8f9fa;
-  --ilc-color-text: #212121;
-  --ilc-color-text-secondary: #666;
-  --ilc-color-border: #d9d9d9;
+  --ilc-gradient-brand: linear-gradient(90deg, #07b1d6 0%, #00943e 48%, #ffe109 100%);
+
+  /* Semantic palette - Light theme */
+  --ilc-color-primary: #037199;
+  --ilc-color-primary-hover: #025a7a;
+  --ilc-color-primary-subtle: #e6f6fa;
+  --ilc-color-secondary: #0e2841;
+  --ilc-color-secondary-hover: #183b5e;
+  --ilc-color-success: #007a33;
+  --ilc-color-success-hover: #006128;
+  --ilc-color-warning: #e09600;
+  --ilc-color-warning-hover: #be7f00;
+  --ilc-color-danger: #c62828;
+  --ilc-color-danger-hover: #a31d1d;
+  --ilc-color-info: #0277a8;
+  --ilc-color-info-hover: #015e86;
+
+  /* Foreground & surfaces - Light theme */
+  --ilc-color-on-primary: #ffffff;
+  --ilc-color-on-secondary: #ffffff;
+  --ilc-color-on-warning: #0e2841;
+  --ilc-color-background: #ffffff;
+  --ilc-color-surface: #f3f7fa;
+  --ilc-color-surface-elevated: #ffffff;
+  --ilc-color-text: #0e2841;
+  --ilc-color-text-secondary: #4a5b6d;
+  --ilc-color-border: #d0dce6;
+}
+
+/* Angular Material 3 system color alignment (Light) */
+html:root {
+  --mat-sys-primary: var(--ilc-color-primary);
+  --mat-sys-on-primary: var(--ilc-color-on-primary);
+  --mat-sys-primary-container: var(--ilc-color-primary-subtle);
+  --mat-sys-on-primary-container: var(--ilc-color-brand-navy);
+  --mat-sys-secondary: var(--ilc-color-secondary);
+  --mat-sys-on-secondary: var(--ilc-color-on-secondary);
+  --mat-sys-surface: var(--ilc-color-surface-elevated);
+  --mat-sys-surface-container: var(--ilc-color-surface);
+  --mat-sys-surface-container-low: var(--ilc-color-surface);
+  --mat-sys-on-surface: var(--ilc-color-text);
+  --mat-sys-on-surface-variant: var(--ilc-color-text-secondary);
+  --mat-sys-outline: var(--ilc-color-border);
+  --mat-sys-outline-variant: var(--ilc-color-border);
+  --mat-sys-error: var(--ilc-color-danger);
 }
 
 [data-theme='dark'] {
-  --ilc-color-background: #121212;
-  --ilc-color-surface: #1e1e1e;
-  --ilc-color-text: #fff;
-  --ilc-color-text-secondary: #bdbdbd;
-  --ilc-color-border: #444;
+  color-scheme: dark;
+
+  /* Semantic palette - Dark theme (Deep Navy & Cyan ILC) */
+  --ilc-color-primary: #07b1d6;
+  --ilc-color-primary-hover: #29c7e8;
+  --ilc-color-primary-subtle: #0f3854;
+  --ilc-color-secondary: #2a4b6c;
+  --ilc-color-secondary-hover: #365e85;
+  --ilc-color-success: #22c55e;
+  --ilc-color-success-hover: #4ade80;
+  --ilc-color-warning: #ffe109;
+  --ilc-color-warning-hover: #ffea4d;
+  --ilc-color-danger: #ef5350;
+  --ilc-color-danger-hover: #f47370;
+  --ilc-color-info: #00dcdb;
+  --ilc-color-info-hover: #4df0ef;
+
+  /* Foreground & surfaces - Dark theme */
+  --ilc-color-on-primary: #071926;
+  --ilc-color-on-secondary: #f0f6fa;
+  --ilc-color-on-warning: #0e2841;
+  --ilc-color-background: #0b1929;
+  --ilc-color-surface: #0e2841;
+  --ilc-color-surface-elevated: #163554;
+  --ilc-color-text: #f0f6fa;
+  --ilc-color-text-secondary: #a8c0d4;
+  --ilc-color-border: #26496b;
+
+  /* Angular Material 3 system color alignment (Dark) */
+  --mat-sys-primary: var(--ilc-color-primary);
+  --mat-sys-on-primary: var(--ilc-color-on-primary);
+  --mat-sys-primary-container: var(--ilc-color-primary-subtle);
+  --mat-sys-on-primary-container: var(--ilc-color-text);
+  --mat-sys-secondary: var(--ilc-color-secondary);
+  --mat-sys-on-secondary: var(--ilc-color-on-secondary);
+  --mat-sys-surface: var(--ilc-color-surface);
+  --mat-sys-surface-container: var(--ilc-color-surface-elevated);
+  --mat-sys-surface-container-low: var(--ilc-color-background);
+  --mat-sys-on-surface: var(--ilc-color-text);
+  --mat-sys-on-surface-variant: var(--ilc-color-text-secondary);
+  --mat-sys-outline: var(--ilc-color-border);
+  --mat-sys-outline-variant: var(--ilc-color-border);
+  --mat-sys-error: var(--ilc-color-danger);
 }
