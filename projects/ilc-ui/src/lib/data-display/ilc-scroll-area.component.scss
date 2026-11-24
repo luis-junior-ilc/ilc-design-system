@@ -1,0 +1,68 @@
+:host {
+  display: block;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  --ilc-scroll-thumb: color-mix(in srgb, var(--ilc-color-primary, #1976d2) 55%, transparent);
+  --ilc-scroll-thumb-hover: var(--ilc-color-primary, #1976d2);
+  --ilc-scroll-size: 10px;
+}
+
+:host([data-size='sm']) { --ilc-scroll-size: 6px; }
+:host([data-size='lg']) { --ilc-scroll-size: 14px; }
+
+.ilc-scroll-area__viewport {
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ilc-scroll-thumb) transparent;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+:host(.ilc-scroll-area--horizontal) .ilc-scroll-area__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.ilc-scroll-area__viewport::-webkit-scrollbar { width: var(--ilc-scroll-size); height: var(--ilc-scroll-size); }
+.ilc-scroll-area__viewport::-webkit-scrollbar-track { background: transparent; }
+.ilc-scroll-area__viewport::-webkit-scrollbar-thumb {
+  background: var(--ilc-scroll-thumb);
+  border: 2px solid transparent;
+  background-clip: content-box;
+  border-radius: 999px;
+}
+.ilc-scroll-area__viewport::-webkit-scrollbar-thumb:hover { background: var(--ilc-scroll-thumb-hover); background-clip: content-box; }
+.ilc-scroll-area__viewport:focus-visible { outline: 2px solid var(--ilc-color-primary, #1976d2); outline-offset: -2px; }
+
+.ilc-scroll-area__scrollbar {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .85;
+  transition: opacity .2s ease;
+}
+
+:host(:hover) .ilc-scroll-area__scrollbar { opacity: 1; }
+
+.ilc-scroll-area__scrollbar--vertical { top: 2px; right: 2px; bottom: 2px; width: var(--ilc-scroll-size); }
+.ilc-scroll-area__scrollbar--horizontal { left: 2px; right: 2px; bottom: 2px; height: var(--ilc-scroll-size); }
+
+.ilc-scroll-area__thumb {
+  position: absolute;
+  border-radius: 999px;
+  background: var(--ilc-scroll-thumb);
+  transition: background .15s ease;
+}
+
+.ilc-scroll-area__thumb--vertical { right: 0; min-height: 28px; }
+.ilc-scroll-area__thumb--horizontal { bottom: 0; min-width: 28px; }
+
+[data-theme='dark'] :host, :host-context([data-theme='dark']) {
+  --ilc-scroll-thumb: color-mix(in srgb, #90caf9 45%, transparent);
+}

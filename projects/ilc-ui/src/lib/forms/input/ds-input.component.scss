@@ -1,0 +1,4 @@
+:host { display: block; flex: 1; min-width: 0; }
+input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; }
+input::placeholder { color: var(--ds-color-text-muted, #57606a); }
+input:disabled { cursor: not-allowed; }

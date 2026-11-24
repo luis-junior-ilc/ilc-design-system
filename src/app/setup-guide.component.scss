@@ -1,0 +1,8 @@
+:host { display: block; }
+.setup-guide > p, .setup-guide li > p { color: var(--ilc-color-text-secondary); }
+.setup-guide__steps { display: grid; gap: var(--ilc-spacing-5); margin: 0; padding-left: var(--ilc-spacing-6); }
+.setup-guide__steps li { padding-left: var(--ilc-spacing-2); }
+.setup-guide h3 { margin: 0 0 var(--ilc-spacing-2); font-size: var(--ilc-font-size-md); }
+.setup-guide p { margin: 0 0 var(--ilc-spacing-2); }
+.setup-guide pre { overflow: auto; margin: var(--ilc-spacing-2) 0 0; padding: var(--ilc-spacing-3); border: 1px solid var(--ilc-color-border); border-radius: var(--ilc-radius-sm); background: var(--ilc-color-surface); color: var(--ilc-color-text); }
+.setup-guide code { font-size: var(--ilc-font-size-xs); }

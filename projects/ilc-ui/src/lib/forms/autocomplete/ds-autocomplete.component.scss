@@ -1,0 +1,6 @@
+:host { position: relative; display: block; flex: 1; min-width: 0; }
+input { width: 100%; min-height: 2.5rem; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; }
+.ds-autocomplete__listbox { position: absolute; z-index: 11; top: calc(100% + 4px); right: 0; left: 0; max-height: 16rem; overflow: auto; margin: 0; padding: 4px; border: 1px solid var(--ds-color-border, #8b949e); border-radius: var(--ds-border-radius, 4px); background: var(--ds-color-surface, #fff); box-shadow: var(--ds-shadow-md, 0 4px 12px #0002); list-style: none; }
+.ds-autocomplete__listbox li { padding: 8px; border-radius: 3px; cursor: pointer; }
+.ds-autocomplete__listbox li[aria-selected='true'] { background: var(--ds-color-primary-subtle, #ddf4ff); }
+.ds-autocomplete__empty { color: var(--ds-color-text-muted, #57606a); }

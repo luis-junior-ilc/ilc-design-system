@@ -1,0 +1,38 @@
+@if (active()) {
+  <div class="ilc-logistics-loader" [class.ilc-logistics-loader--compact]="compact()" [class.ilc-logistics-loader--stacked]="warehouse() === 'stacked'" [class.ilc-logistics-loader--expanded]="warehouse() === 'expanded'" role="status" aria-live="polite">
+    <span class="ilc-logistics-loader__scene" aria-hidden="true">
+      <span class="ilc-logistics-loader__belt">
+        <span class="ilc-logistics-loader__package ilc-logistics-loader__package--belt">
+          <mat-icon>inventory_2</mat-icon>
+        </span>
+      </span>
+      <span class="ilc-logistics-loader__forklift">
+        <mat-icon class="ilc-logistics-loader__forklift-icon">forklift</mat-icon>
+        <span class="ilc-logistics-loader__package ilc-logistics-loader__package--forklift"></span>
+      </span>
+      <span class="ilc-logistics-loader__trailer">
+        <span class="ilc-logistics-loader__trailer-box"></span>
+        <span class="ilc-logistics-loader__trailer-box-door"></span>
+        <span class="ilc-logistics-loader__trailer-box-stripe"></span>
+        <span class="ilc-logistics-loader__trailer-dolly"></span>
+        <span class="ilc-logistics-loader__trailer-hitch"></span>
+        <span class="ilc-logistics-loader__trailer-cab"></span>
+        <span class="ilc-logistics-loader__trailer-cab-window"></span>
+        <span class="ilc-logistics-loader__trailer-cab-spoiler"></span>
+        <span class="ilc-logistics-loader__trailer-cab-headlight"></span>
+        <span class="ilc-logistics-loader__trailer-wheel ilc-logistics-loader__trailer-wheel--w1"></span>
+        <span class="ilc-logistics-loader__trailer-wheel ilc-logistics-loader__trailer-wheel--w2"></span>
+        <span class="ilc-logistics-loader__trailer-wheel ilc-logistics-loader__trailer-wheel--w3"></span>
+        <span class="ilc-logistics-loader__trailer-wheel ilc-logistics-loader__trailer-wheel--w4"></span>
+        <span class="ilc-logistics-loader__package ilc-logistics-loader__package--trailer"></span>
+      </span>
+      <span class="ilc-logistics-loader__warehouse">
+        <mat-icon class="ilc-logistics-loader__warehouse-icon">factory</mat-icon>
+        <span class="ilc-logistics-loader__stack ilc-logistics-loader__stack--a"></span>
+        <span class="ilc-logistics-loader__stack ilc-logistics-loader__stack--b"></span>
+        <span class="ilc-logistics-loader__package ilc-logistics-loader__package--warehouse"></span>
+      </span>
+    </span>
+    <span class="ilc-logistics-loader__label">{{ label() }}</span>
+  </div>
+}

@@ -1,0 +1,17 @@
+<input
+  [id]="id()"
+  [type]="type()"
+  [placeholder]="placeholder()"
+  [autocomplete]="autocomplete()"
+  [value]="value() ?? ''"
+  [disabled]="disabled()"
+  [readOnly]="readonly()"
+  [required]="required()"
+  [attr.aria-label]="ariaLabel() || null"
+  [attr.aria-labelledby]="ariaLabelledBy() || null"
+  [attr.aria-describedby]="ariaDescribedBy() || null"
+  [attr.aria-invalid]="ngControl?.invalid || null"
+  (input)="onInput($event)"
+  (focus)="focused.set(true)"
+  (blur)="focused.set(false); markTouched()"
+/>

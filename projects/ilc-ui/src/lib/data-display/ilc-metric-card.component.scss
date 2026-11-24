@@ -1,0 +1,9 @@
+:host { display: block; min-width: 0; }
+.ilc-metric-card { min-height: 136px; padding: 18px; gap: 10px; border: 1px solid var(--ilc-metric-border, #c5d8ec); border-radius: 8px; background: var(--ilc-metric-surface, #f1f7fd); color: var(--mat-sys-on-surface, #191c20); box-shadow: none; }
+.ilc-metric-card__heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--mat-sys-on-surface-variant, #44474e); font-size: .875rem; }
+.ilc-metric-card__heading mat-icon { color: var(--ilc-metric-accent, #005cbb); }
+.ilc-metric-card__value { font-size: 1.875rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.ilc-metric-card__detail { color: var(--mat-sys-on-surface-variant, #44474e); font-size: .75rem; }
+:host([data-tone='teal']) { --ilc-metric-surface: #edf8f6; --ilc-metric-border: #c3e1dc; --ilc-metric-accent: #087e70; }
+:host([data-tone='amber']) { --ilc-metric-surface: #fff7e8; --ilc-metric-border: #efddb7; --ilc-metric-accent: #966300; }
+:host([data-tone='rose']) { --ilc-metric-surface: #fff2f2; --ilc-metric-border: #efcece; --ilc-metric-accent: #ad3c47; }

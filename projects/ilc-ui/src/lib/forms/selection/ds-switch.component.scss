@@ -1,0 +1,7 @@
+:host { display: inline-block; }
+button { display: inline-flex; align-items: center; gap: var(--ds-spacing-sm, 8px); padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.ds-switch__track { display: inline-flex; align-items: center; width: 2.5rem; height: 1.4rem; padding: 2px; border-radius: 1rem; background: var(--ds-color-border, #8b949e); transition: background-color 120ms ease; }
+.ds-switch__thumb { width: 1rem; height: 1rem; border-radius: 50%; background: #fff; transition: transform 120ms ease; }
+button[aria-checked='true'] .ds-switch__track { background: var(--ds-color-primary, #0969da); }
+button[aria-checked='true'] .ds-switch__thumb { transform: translateX(1.1rem); }
+button:focus-visible { outline: 2px solid var(--ds-color-primary, #0969da); outline-offset: 3px; }

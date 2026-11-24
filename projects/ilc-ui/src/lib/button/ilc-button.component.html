@@ -1,0 +1,16 @@
+<button
+  class="ilc-button"
+  [ngClass]="classes"
+  [type]="type"
+  [disabled]="disabled || loading"
+  [attr.aria-label]="ariaLabel || null"
+  [attr.aria-busy]="loading ? 'true' : null">
+  @if (loading) {
+    <span class="ilc-button__spinner" aria-hidden="true"></span>
+  } @else {
+    @if (icon) {
+      <ilc-icon class="ilc-button__icon" [name]="icon" aria-hidden="true"></ilc-icon>
+    }
+  }
+  <span class="ilc-button__label" [class.ilc-button__label--loading]="loading"><ng-content></ng-content></span>
+</button>

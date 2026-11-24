@@ -1,0 +1,28 @@
+<section class="ilc-file-upload" [class.ilc-file-upload--active]="dragOver()" [class.ilc-file-upload--disabled]="disabled()"
+  role="group" aria-label="File upload" (dragover)="onDragOver($event)" (dragleave)="dragOver.set(false)" (drop)="onDrop($event)">
+  <input #picker type="file" class="ilc-file-upload__input" [accept]="accept()" [multiple]="multiple()"
+    [disabled]="disabled()" (change)="onFileInput($event)" />
+  <p>PDF or images, up to {{ maxSizeMb() }} MB each.</p>
+  <button mat-stroked-button type="button" [disabled]="disabled()" (click)="picker.click()">
+    <mat-icon aria-hidden="true">attach_file</mat-icon>
+    Select {{ multiple() ? 'files' : 'a file' }} or drop here
+  </button>
+  @if (errors().length) {
+    <ul class="ilc-file-upload__errors" role="alert">
+      @for (error of errors(); track error) { <li>{{ error }}</li> }
+    </ul>
+  }
+  @if (files().length) {
+    <ul class="ilc-file-upload__files" aria-label="Selected files">
+      @for (file of files(); track file.name + file.lastModified; let index = $index) {
+        <li>
+          @if (previews()[index]) { <img [src]="previews()[index]" [alt]="'Preview of ' + file.name" /> }
+          <span>{{ file.name }} ({{ (file.size / 1024 / 1024).toFixed(2) }} MB)</span>
+          <button mat-icon-button type="button" [disabled]="disabled()" [attr.aria-label]="'Remove ' + file.name" (click)="remove(index)">
+            <mat-icon aria-hidden="true">delete</mat-icon>
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</section>

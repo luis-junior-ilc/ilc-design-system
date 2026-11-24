@@ -1,0 +1,5 @@
+<textarea [id]="id()" [rows]="rows()" [attr.maxlength]="maxlength() ?? null" [placeholder]="placeholder()"
+  [value]="value() ?? ''" [disabled]="disabled()" [attr.aria-labelledby]="ariaLabelledBy() || null"
+  [attr.aria-describedby]="ariaDescribedBy() || null" [attr.aria-invalid]="ngControl?.invalid || null"
+  (input)="onInput($event)" (focus)="focused.set(true)" (blur)="focused.set(false); markTouched()"></textarea>
+@if (remaining() !== null) { <span class="ds-textarea__counter" aria-live="polite">{{ remaining() }} characters remaining</span> }

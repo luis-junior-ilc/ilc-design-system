@@ -1,0 +1,8 @@
+<svg class="ilc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  @for (path of definition.paths; track path) {
+    <path [attr.d]="path"></path>
+  }
+  @for (circle of definition.circles ?? []; track circle.cx) {
+    <circle [attr.cx]="circle.cx" [attr.cy]="circle.cy" [attr.r]="circle.r"></circle>
+  }
+</svg>

@@ -1,0 +1,12 @@
+:host { display: block; flex: 1; min-width: 0; }
+.ds-file-upload { padding: var(--ds-spacing-md, 16px); border: 1px dashed var(--ds-color-border, #8b949e); border-radius: var(--ds-border-radius, 4px); text-align: center; }
+.ds-file-upload--drag-over { border-color: var(--ds-color-primary, #0969da); background: var(--ds-color-primary-subtle, #ddf4ff); }
+.ds-file-upload--disabled { opacity: .6; }
+input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+label { display: inline-block; color: var(--ds-color-primary, #0969da); cursor: pointer; font-weight: 600; }
+label:focus-visible, input:focus-visible + label { outline: 2px solid var(--ds-color-primary, #0969da); outline-offset: 3px; }
+p { margin: 4px 0; color: var(--ds-color-text-muted, #57606a); font-size: var(--ds-font-size-xs, .75rem); }
+ul { margin: var(--ds-spacing-sm, 8px) 0 0; padding: 0; list-style: none; text-align: left; }
+li { display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-top: 1px solid var(--ds-color-border, #d0d7de); }
+img { width: 3rem; height: 3rem; object-fit: cover; border-radius: var(--ds-border-radius, 4px); }
+button { border: 0; background: transparent; color: var(--ds-color-error, #cf222e); cursor: pointer; }

@@ -1,0 +1,7 @@
+<button type="button" aria-label="Decrease value" [disabled]="disabled()" (click)="adjust(-1)">-</button>
+<input [id]="id()" type="number" [value]="value() ?? ''" [min]="min() ?? null" [max]="max() ?? null"
+  [step]="step()" [placeholder]="placeholder()" [disabled]="disabled()"
+  [attr.aria-labelledby]="ariaLabelledBy() || null" [attr.aria-describedby]="ariaDescribedBy() || null"
+  [attr.aria-invalid]="ngControl?.invalid || null"
+  (input)="onInput($event)" (focus)="focused.set(true)" (blur)="focused.set(false); markTouched()" />
+<button type="button" aria-label="Increase value" [disabled]="disabled()" (click)="adjust(1)">+</button>

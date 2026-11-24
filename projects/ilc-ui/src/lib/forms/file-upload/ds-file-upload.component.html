@@ -1,0 +1,18 @@
+<div class="ds-file-upload" [class.ds-file-upload--drag-over]="dragOver()" [class.ds-file-upload--disabled]="disabled()"
+  role="group" [attr.aria-labelledby]="ariaLabelledBy() || null" [attr.aria-describedby]="ariaDescribedBy() || null"
+  (dragover)="preventDefault($event)" (dragleave)="clearDrag()" (drop)="onDrop($event)">
+  <input [id]="id()" type="file" [accept]="accept() || null" [multiple]="multiple()" [disabled]="disabled()"
+    (change)="onInput($event)" />
+  <label [for]="id()">Choose file{{ multiple() ? 's' : '' }} or drop here</label>
+  <p>Maximum size: {{ maxSizeMb() }} MB</p>
+  @if (files().length) {
+    <ul aria-label="Selected files">
+      @for (file of files(); track file.name + file.lastModified; let index = $index) {
+        <li>@if (previews()[index]) { <img [src]="previews()[index]" [alt]="file.name + ' preview'" /> }
+          <span>{{ file.name }} ({{ (file.size / 1024 / 1024).toFixed(2) }} MB)</span>
+          <button type="button" [disabled]="disabled()" [attr.aria-label]="'Remove ' + file.name" (click)="remove(index)">Remove</button>
+        </li>
+      }
+    </ul>
+  }
+</div>

@@ -1,0 +1,15 @@
+<details class="api-info" [class.api-info--compact]="compact">
+  <summary [attr.aria-label]="'Informações de uso: ' + entry.selector" [title]="'Informações de uso: ' + entry.selector">
+    <span aria-hidden="true">i</span>
+  </summary>
+  <div class="api-info__panel">
+    <h3><code>{{ entry.selector }}</code></h3>
+    <p>{{ entry.purpose }}</p>
+    <pre><code>{{ entry.example }}</code></pre>
+    <ul>
+      @for (parameter of entry.parameters; track parameter) {
+        <li>{{ parameter }}</li>
+      }
+    </ul>
+  </div>
+</details>

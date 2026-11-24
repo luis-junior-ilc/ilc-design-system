@@ -1,0 +1,4 @@
+:host { display: block; max-width: 44rem; margin-inline: auto; padding: var(--ds-spacing-md, 16px); }
+form { display: grid; gap: var(--ds-spacing-md, 16px); }
+button[type='submit'] { justify-self: start; min-height: 2.5rem; padding: 0 var(--ds-spacing-md, 16px); border: 0; border-radius: var(--ds-border-radius, 4px); background: var(--ds-color-primary, #075985); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+button[type='submit']:focus-visible { outline: 3px solid var(--ds-color-primary-subtle, #e0f2fe); outline-offset: 2px; }

@@ -1,0 +1,4 @@
+:host { display: flex; flex: 1; min-width: 0; align-items: center; justify-content: space-between; }
+input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; text-align: center; }
+button { width: 2rem; height: 2rem; border: 0; border-radius: var(--ds-border-radius, 4px); background: var(--ds-color-surface-muted, #f6f8fa); color: inherit; font: inherit; cursor: pointer; }
+button:focus-visible { outline: 2px solid var(--ds-color-primary, #0969da); outline-offset: 2px; }

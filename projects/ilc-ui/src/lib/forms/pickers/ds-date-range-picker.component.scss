@@ -1,0 +1,6 @@
+:host { display: block; flex: 1; min-width: 0; }
+.ds-date-range__inputs { display: grid; grid-template-columns: auto minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: var(--ds-spacing-sm, 8px); }
+label { color: var(--ds-color-text-muted, #57606a); font-size: var(--ds-font-size-xs, .75rem); }
+input { width: 100%; min-width: 0; min-height: 2.5rem; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; }
+.ds-date-range__error { display: block; margin-top: 4px; color: var(--ds-color-error, #cf222e); font-size: var(--ds-font-size-xs, .75rem); }
+@media (max-width: 480px) { .ds-date-range__inputs { grid-template-columns: auto 1fr; } }

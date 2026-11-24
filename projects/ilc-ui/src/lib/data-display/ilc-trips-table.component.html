@@ -1,0 +1,69 @@
+<section class="ilc-trips" aria-labelledby="ilc-trips-title">
+  <header class="ilc-trips__header">
+    <div>
+      <h2 id="ilc-trips-title">Viagens</h2>
+      <p>Prioridade ordenada por risco operacional e próximo marco</p>
+    </div>
+    <button mat-stroked-button type="button" class="ilc-trips__export" (click)="exportExcel()">
+      <mat-icon aria-hidden="true">download</mat-icon>
+      Exportar Excel
+    </button>
+  </header>
+
+  <ilc-scroll-area class="ilc-trips__scroll" axis="both" size="md" label="Tabela de viagens">
+  <table mat-table [dataSource]="visibleTrips()" class="ilc-trips__table">
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>STATUS</th>
+        <td mat-cell *matCellDef="let trip"><span class="ilc-trips__status">{{ trip.status }}</span></td>
+      </ng-container>
+
+      <ng-container matColumnDef="trip">
+        <th mat-header-cell *matHeaderCellDef>VIAGEM</th>
+        <td mat-cell *matCellDef="let trip" class="ilc-trips__trip">{{ trip.trip }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>DATA</th>
+        <td mat-cell *matCellDef="let trip">{{ trip.date }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>TIPO VIAGEM</th>
+        <td mat-cell *matCellDef="let trip">{{ trip.type }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="route">
+        <th mat-header-cell *matHeaderCellDef>ROTA</th>
+        <td mat-cell *matCellDef="let trip" class="ilc-trips__route">{{ trip.route }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="driver">
+        <th mat-header-cell *matHeaderCellDef>MOTORISTA</th>
+        <td mat-cell *matCellDef="let trip" class="ilc-trips__driver">{{ trip.driver }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="plate">
+        <th mat-header-cell *matHeaderCellDef>PLACA</th>
+        <td mat-cell *matCellDef="let trip" class="ilc-trips__plate">{{ trip.plate }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="situation">
+        <th mat-header-cell *matHeaderCellDef>SITUAÇÃO</th>
+        <td mat-cell *matCellDef="let trip">{{ trip.situation }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>AÇÃO</th>
+        <td mat-cell *matCellDef="let trip">
+          <button mat-button type="button" class="ilc-trips__action" (click)="requestAction(trip)">{{ trip.action }}</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      <tr class="mat-mdc-row" *matNoDataRow><td class="mat-mdc-cell" [attr.colspan]="displayedColumns.length">Nenhuma viagem encontrada.</td></tr>
+    </table>
+  </ilc-scroll-area>
+  <ilc-pagination class="ilc-trips__pagination" [length]="trips().length" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex()"
+    [pageSize]="pageSize()" ariaLabel="Paginação das viagens" (pageChange)="onPageChange($event)" />
+</section>

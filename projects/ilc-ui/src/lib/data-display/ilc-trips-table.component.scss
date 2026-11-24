@@ -1,0 +1,28 @@
+:host { display: block; min-width: 0; }
+.ilc-trips { overflow: hidden; border: 1px solid var(--mat-sys-outline-variant, #c4c6d0); border-radius: 8px; background: var(--mat-sys-surface, #fff); }
+.ilc-trips__header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; border-bottom: 1px solid var(--mat-sys-outline-variant, #c4c6d0); }
+.ilc-trips__header h2 { margin: 0 0 4px; font-size: 1.25rem; }
+.ilc-trips__header p { margin: 0; color: var(--mat-sys-on-surface-variant, #44474e); font-size: .875rem; }
+.ilc-trips__export { flex: 0 0 auto; }
+.ilc-trips__export mat-icon { margin-right: 6px; }
+.ilc-trips__scroll { width: 100%; max-width: 100%; height: 420px; }
+.ilc-trips__pagination { display: block; padding: 12px 24px; border-top: 1px solid var(--mat-sys-outline-variant, #c4c6d0); }
+.ilc-trips__table { width: 100%; min-width: 1120px; }
+.ilc-trips__table th { color: var(--mat-sys-on-surface-variant, #44474e); background: var(--mat-sys-surface-container-low, #f7f8fa); font-size: .6875rem; font-weight: 700; letter-spacing: .04em; white-space: nowrap; }
+.ilc-trips__table td { padding-block: 14px; font-size: .8125rem; }
+.ilc-trips__table tr.mat-mdc-row:hover { background: var(--mat-sys-surface-container-low, #f7f8fa); }
+.ilc-trips__status { display: inline-flex; padding: 4px 8px; border-radius: 999px; background: #e8f5ed; color: #216e39; font-size: .6875rem; font-weight: 700; white-space: nowrap; }
+.ilc-trips__trip, .ilc-trips__plate { font-weight: 600; white-space: nowrap; }
+.ilc-trips__route, .ilc-trips__driver { min-width: 190px; max-width: 260px; white-space: normal; }
+.ilc-trips__action { color: var(--mat-sys-primary, #005cbb); font-weight: 600; white-space: nowrap; }
+@media (max-width: 800px) {
+  .ilc-trips__header { padding: 16px 20px; }
+}
+@media (max-width: 600px) {
+  .ilc-trips__header { align-items: stretch; flex-direction: column; padding: 16px; }
+  .ilc-trips__export { align-self: flex-start; }
+  .ilc-trips__table { min-width: 1360px; }
+  .ilc-trips__table th { padding-inline: 20px; font-size: .75rem; }
+  .ilc-trips__table td { padding: 16px 20px; font-size: .875rem; }
+  .ilc-trips__status { font-size: .75rem; }
+}

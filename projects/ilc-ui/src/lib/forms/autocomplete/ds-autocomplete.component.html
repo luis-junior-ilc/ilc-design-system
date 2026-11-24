@@ -1,0 +1,13 @@
+<input [id]="id()" role="combobox" aria-autocomplete="list" [attr.aria-expanded]="open()" [attr.aria-controls]="listId()"
+  [attr.aria-label]="ariaLabel() || null" [attr.aria-labelledby]="ariaLabelledBy() || null"
+  [attr.aria-describedby]="ariaDescribedBy() || null" [attr.aria-activedescendant]="open() && filteredOptions().length ? listId() + '-option-' + activeIndex() : null"
+  [value]="displayValue()" [placeholder]="placeholder()" [disabled]="disabled()"
+  [attr.aria-invalid]="ngControl?.invalid || null" (input)="onInput($event)" (keydown)="onKeydown($event)"
+  (focus)="open.set(true); focused.set(true)" (blur)="focused.set(false); markTouched()" />
+@if (open()) {
+  <ul [id]="listId()" role="listbox" class="ds-autocomplete__listbox">
+    @for (option of filteredOptions(); track option.value; let index = $index) {
+      <li [id]="listId() + '-option-' + index" role="option" [attr.aria-selected]="activeIndex() === index" (mousedown)="$event.preventDefault()" (click)="choose(option)">{{ option.label }}</li>
+    } @empty { <li class="ds-autocomplete__empty">No suggestions</li> }
+  </ul>
+}

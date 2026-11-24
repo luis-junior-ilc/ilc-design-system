@@ -1,0 +1,11 @@
+<h2 mat-dialog-title class="ilc-dialog__title" [attr.data-kind]="data.kind">
+  <mat-icon aria-hidden="true">{{ icon() }}</mat-icon>
+  {{ data.title }}
+</h2>
+<mat-dialog-content><p>{{ data.message }}</p></mat-dialog-content>
+<mat-dialog-actions align="end">
+  @if (data.showCancel) {
+    <button mat-button type="button" (click)="close(false)">{{ data.cancelText }}</button>
+  }
+  <button mat-flat-button color="primary" type="button" cdkFocusInitial (click)="close(true)">{{ data.confirmText }}</button>
+</mat-dialog-actions>

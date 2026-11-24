@@ -1,0 +1,11 @@
+:host { display: block; width: 100%; }
+.ilc-file-upload { padding: 1rem; border: 1px dashed var(--mat-sys-outline, #79747e); border-radius: 8px; text-align: center; }
+.ilc-file-upload--active { border-color: var(--mat-sys-primary, #005cbb); background: var(--mat-sys-primary-container, #d7e3ff); }
+.ilc-file-upload--disabled { opacity: .6; }
+.ilc-file-upload__input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); clip-path: inset(50%); }
+p { margin: 0 0 .75rem; color: var(--mat-sys-on-surface-variant, #44474e); }
+ul { display: grid; gap: .5rem; margin: .75rem 0 0; padding: 0; list-style: none; text-align: left; }
+li { display: flex; align-items: center; gap: .75rem; padding: .5rem; border-top: 1px solid var(--mat-sys-outline-variant, #c4c6d0); }
+li span { flex: 1; overflow-wrap: anywhere; }
+img { width: 3rem; height: 3rem; border-radius: 4px; object-fit: cover; }
+.ilc-file-upload__errors { color: var(--mat-sys-error, #ba1a1a); }

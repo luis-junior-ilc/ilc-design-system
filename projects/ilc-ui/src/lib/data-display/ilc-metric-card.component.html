@@ -1,0 +1,8 @@
+<mat-card class="ilc-metric-card">
+  <div class="ilc-metric-card__heading">
+    <span>{{ title() }}</span>
+    @if (icon()) { <mat-icon aria-hidden="true">{{ icon() }}</mat-icon> }
+  </div>
+  <strong class="ilc-metric-card__value">{{ value() }}</strong>
+  @if (detail()) { <span class="ilc-metric-card__detail">{{ detail() }}</span> }
+</mat-card>

@@ -1,0 +1,480 @@
+:host { display: inline-block; }
+
+.ilc-logistics-loader {
+  --ilc-logistics-width: 360px;
+  --ilc-logistics-height: 80px;
+  --ilc-logistics-belt-width: 96px;
+  --ilc-logistics-forklift-distance: 18px;
+  --ilc-logistics-trailer-distance: 30px;
+  --ilc-logistics-package-distance: 108px; /* da esteira até o garfo da empilhadeira */
+  --ilc-logistics-stack-size: 10px;
+  --ilc-logistics-gap: 12px;
+  display: inline-grid;
+  justify-items: center;
+  gap: 12px;
+  width: 100%;
+  min-width: var(--ilc-logistics-width);
+  color: var(--mat-sys-primary, #005cbb);
+}
+
+.ilc-logistics-loader__scene {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: var(--ilc-logistics-height);
+}
+
+.ilc-logistics-loader__belt {
+  position: absolute;
+  bottom: 9px;
+  right: 258px; /* posicionada antes da empilhadeira, com espaço entre os elementos */
+  width: var(--ilc-logistics-belt-width);
+  height: 16px;
+  border: 2px solid currentColor;
+  border-radius: 5px;
+  background: repeating-linear-gradient(90deg, transparent 0 8px, currentColor 8px 10px);
+  background-size: 18px 100%;
+  animation: ilc-logistics-belt 0.6s linear infinite;
+  opacity: .58;
+}
+
+.ilc-logistics-loader__package {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+}
+
+.ilc-logistics-loader__package--belt {
+  z-index: 1;
+  bottom: 17px;
+  left: 0;
+  animation: ilc-logistics-package-transfer 8s linear infinite;
+}
+
+/* Empilhadeira: recebe a caixa da esteira, carrega e leva até a carreta.
+   Ancorada pela direita para acompanhar o armazém em cenas largas */
+.ilc-logistics-loader__forklift {
+  position: absolute;
+  bottom: 4px;
+  right: 206px;
+  width: 40px;
+  height: 40px;
+  animation: ilc-logistics-forklift-move 8s ease-in-out infinite;
+}
+
+.ilc-logistics-loader__forklift-icon {
+  position: absolute;
+  inset: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+}
+
+.ilc-logistics-loader__package--forklift {
+  z-index: 1;
+  top: -2px;
+  right: 2px; /* caixa na frente (parte dianteira) da empilhadeira, voltada para a carreta */
+  opacity: 0;
+  border-radius: 2px;
+  background: var(--mat-sys-surface, #fff);
+  box-shadow: inset 0 0 0 2px var(--mat-sys-surface, #fff), inset 0 0 0 4px currentColor;
+  animation: ilc-logistics-package-on-forklift 8s linear infinite;
+}
+
+/* Carreta: cavalo (cab) + engate (hitch) + reboque (dolly) + semi-reboque (box).
+   Ancorada pela direita: para na porta do armazém em qualquer largura de cena */
+.ilc-logistics-loader__trailer {
+  position: absolute;
+  bottom: 4px;
+  right: 90px;
+  width: 104px;
+  height: 46px;
+  animation: ilc-logistics-trailer-drive 8s ease-in-out infinite;
+}
+
+.ilc-logistics-loader__trailer-box,
+.ilc-logistics-loader__trailer-dolly,
+.ilc-logistics-loader__trailer-cab {
+  position: absolute;
+  background: currentColor;
+  border-radius: 2px;
+  opacity: .85;
+}
+
+/* Pneus: pneu escuro com calota clara no centro */
+.ilc-logistics-loader__trailer-wheel {
+  position: absolute;
+  bottom: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--mat-sys-on-surface, #1d1b20);
+  opacity: .92;
+}
+
+.ilc-logistics-loader__trailer-wheel::after {
+  content: '';
+  position: absolute;
+  inset: 2.5px;
+  border-radius: 50%;
+  background: var(--mat-sys-surface, #fff);
+  opacity: .85;
+}
+
+/* Semi-reboque: baú alto com faixa clara no topo */
+.ilc-logistics-loader__trailer-box {
+  right: 38px;
+  bottom: 7px;
+  width: 54px;
+  height: 30px;
+  opacity: .9;
+  box-shadow: inset 0 3px 0 var(--mat-sys-surface, #fff);
+}
+
+/* Porta traseira do baú (lado esquerdo) */
+.ilc-logistics-loader__trailer-box-door {
+  position: absolute;
+  right: 90px;
+  bottom: 7px;
+  width: 3px;
+  height: 30px;
+  background: var(--mat-sys-surface, #fff);
+  opacity: .9;
+}
+
+/* Faixa lateral moderna do baú */
+.ilc-logistics-loader__trailer-box-stripe {
+  position: absolute;
+  right: 42px;
+  bottom: 14px;
+  width: 44px;
+  height: 3px;
+  border-radius: 1px;
+  background: var(--mat-sys-surface, #fff);
+  opacity: .45;
+}
+
+/* Reboque (prancha de apoio entre baú e cavalo) */
+.ilc-logistics-loader__trailer-dolly {
+  right: 24px;
+  bottom: 5px;
+  width: 18px;
+  height: 4px;
+  border-radius: 1px;
+}
+
+/* Engate (quinta roda) entre cavalo e semi-reboque */
+.ilc-logistics-loader__trailer-hitch {
+  position: absolute;
+  right: 21px;
+  bottom: 9px;
+  width: 6px;
+  height: 3px;
+  border-radius: 1px;
+  background: currentColor;
+  opacity: .55;
+}
+
+/* Cavalo: cabine avançada moderna, perfil aerodinâmico inclinado */
+.ilc-logistics-loader__trailer-cab {
+  right: 0;
+  bottom: 4px;
+  width: 24px;
+  height: 17px;
+  border-radius: 8px 12px 2px 3px;
+}
+
+/* Janela panorâmica inclinada do cavalo */
+.ilc-logistics-loader__trailer-cab-window {
+  position: absolute;
+  right: 3px;
+  bottom: 11px;
+  width: 10px;
+  height: 7px;
+  border-radius: 3px 6px 1px 2px;
+  background: var(--mat-sys-surface, #fff);
+  opacity: .9;
+}
+
+/* Defletor aerodinâmico no teto da cabine */
+.ilc-logistics-loader__trailer-cab-spoiler {
+  position: absolute;
+  right: 8px;
+  bottom: 21px;
+  width: 10px;
+  height: 4px;
+  border-radius: 3px 1px 0 0;
+  background: currentColor;
+  opacity: .85;
+}
+
+/* Farol dianteiro */
+.ilc-logistics-loader__trailer-cab-headlight {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  width: 3px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--mat-sys-surface, #fff);
+  opacity: .95;
+}
+
+.ilc-logistics-loader__trailer-wheel--w1 { right: 84px; }
+.ilc-logistics-loader__trailer-wheel--w2 { right: 72px; }
+.ilc-logistics-loader__trailer-wheel--w3 { right: 26px; }
+.ilc-logistics-loader__trailer-wheel--w4 { right: 4px; }
+
+.ilc-logistics-loader__package--trailer {
+  z-index: 1;
+  right: 44px;
+  bottom: 11px;
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+  border-radius: 2px;
+  background: var(--mat-sys-surface, #fff);
+  box-shadow: inset 0 0 0 2px var(--mat-sys-surface, #fff), inset 0 0 0 4px currentColor;
+  animation: ilc-logistics-package-on-trailer 8s linear infinite;
+}
+
+.ilc-logistics-loader__warehouse {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  width: 48px;
+  height: 48px;
+}
+
+.ilc-logistics-loader__warehouse-icon {
+  position: absolute;
+  inset: 0;
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+}
+
+/* Dois quadrados fixos dentro do armazém */
+.ilc-logistics-loader__stack {
+  position: absolute;
+  bottom: 14px;
+  left: 12px;
+  width: var(--ilc-logistics-stack-size);
+  height: var(--ilc-logistics-stack-size);
+  border-radius: 2px;
+  background: currentColor;
+  opacity: .7;
+}
+
+.ilc-logistics-loader__stack--b {
+  left: calc(12px + var(--ilc-logistics-stack-size) + var(--ilc-logistics-gap));
+  width: calc(var(--ilc-logistics-stack-size) * .7);
+  height: calc(var(--ilc-logistics-stack-size) * .7);
+  bottom: 14px;
+}
+
+/* Quadrado pequeno que surge quando a carreta chega */
+.ilc-logistics-loader__package--warehouse {
+  bottom: 14px;
+  left: calc(12px + 2 * (var(--ilc-logistics-stack-size) + var(--ilc-logistics-gap)));
+  width: var(--ilc-logistics-stack-size);
+  height: var(--ilc-logistics-stack-size);
+  opacity: 0;
+  border-radius: 2px;
+  background: currentColor;
+  animation: ilc-logistics-package-arrived 8s linear infinite;
+}
+
+.ilc-logistics-loader__label {
+  color: var(--mat-sys-on-surface-variant, #49454f);
+  font-size: .8125rem;
+}
+
+.ilc-logistics-loader--compact {
+  --ilc-logistics-width: 260px;
+  --ilc-logistics-height: 62px;
+  --ilc-logistics-belt-width: 68px;
+  --ilc-logistics-package-distance: 76px;
+  --ilc-logistics-gap: 8px;
+  --ilc-logistics-trailer-distance: 8px;
+  gap: 8px;
+}
+
+.ilc-logistics-loader--compact .ilc-logistics-loader__belt {
+  right: 192px;
+  bottom: 7px;
+  height: 12px;
+}
+
+.ilc-logistics-loader--compact .ilc-logistics-loader__package {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+.ilc-logistics-loader--compact .ilc-logistics-loader__package--belt { bottom: 13px; }
+.ilc-logistics-loader--compact .ilc-logistics-loader__forklift { right: 148px; bottom: 2px; transform: scale(.8); }
+.ilc-logistics-loader--compact .ilc-logistics-loader__trailer { right: 50px; bottom: 2px; transform: scale(.8); }
+.ilc-logistics-loader--compact .ilc-logistics-loader__warehouse { right: 9px; bottom: 2px; transform: scale(.8); }
+.ilc-logistics-loader--compact .ilc-logistics-loader__package--forklift { top: 0; right: 1px; }
+.ilc-logistics-loader--compact .ilc-logistics-loader__package--trailer { right: 32px; bottom: 9px; }
+
+/* Variante 'stacked': armazém de torre — quadrados empilhados verticalmente,
+   a entrega chega ao topo da pilha */
+.ilc-logistics-loader--stacked .ilc-logistics-loader__warehouse {
+  width: 44px;
+  height: 44px;
+}
+
+.ilc-logistics-loader--stacked .ilc-logistics-loader__warehouse-icon {
+  width: 44px;
+  height: 44px;
+  font-size: 44px;
+}
+
+.ilc-logistics-loader--stacked .ilc-logistics-loader__stack {
+  left: 9px;
+  bottom: 12px;
+}
+
+.ilc-logistics-loader--stacked .ilc-logistics-loader__stack--b {
+  left: 9px;
+  bottom: calc(12px + var(--ilc-logistics-stack-size) + 2px);
+}
+
+.ilc-logistics-loader--stacked .ilc-logistics-loader__package--warehouse {
+  left: 9px;
+  bottom: calc(12px + 2 * (var(--ilc-logistics-stack-size) + 2px));
+  animation-name: ilc-logistics-package-stacked;
+}
+
+@keyframes ilc-logistics-package-stacked {
+  0%, 66% { opacity: 0; transform: translateY(8px); }
+  71%, 88% { opacity: 1; transform: translateY(0); }
+  92%, 100% { opacity: 0; transform: translateY(-4px); }
+}
+
+/* Variante 'expanded': armazém/logística ampliada — prédio maior, prateleira
+   com duas fileiras de quadrados e caixa entregue embaixo */
+.ilc-logistics-loader--expanded {
+  --ilc-logistics-stack-size: 12px;
+  --ilc-logistics-gap: 8px;
+}
+
+.ilc-logistics-loader--expanded .ilc-logistics-loader__warehouse {
+  width: 72px;
+  height: 72px;
+}
+
+.ilc-logistics-loader--expanded .ilc-logistics-loader__warehouse-icon {
+  width: 72px;
+  height: 72px;
+  font-size: 72px;
+}
+
+.ilc-logistics-loader--expanded .ilc-logistics-loader__stack {
+  left: 12px;
+  bottom: 30px;
+}
+
+.ilc-logistics-loader--expanded .ilc-logistics-loader__stack--b {
+  left: calc(12px + var(--ilc-logistics-stack-size) + var(--ilc-logistics-gap));
+  bottom: 30px;
+}
+
+.ilc-logistics-loader--expanded .ilc-logistics-loader__package--warehouse {
+  left: 12px;
+  bottom: 12px;
+  width: var(--ilc-logistics-stack-size);
+  height: var(--ilc-logistics-stack-size);
+  animation-name: ilc-logistics-package-row;
+}
+
+@keyframes ilc-logistics-package-row {
+  0%, 66% { opacity: 0; transform: translateX(-8px); }
+  71%, 88% { opacity: 1; transform: translateX(0); }
+  92%, 100% { opacity: 0; transform: translateX(8px); }
+}
+
+@keyframes ilc-logistics-belt {
+  to { background-position-x: 18px; }
+}
+
+/* Caixa na esteira: anda até a empilhadeira (0-25%) e entra nela */
+@keyframes ilc-logistics-package-transfer {
+  0%, 8% { opacity: 1; transform: translateX(0); }
+  22% { opacity: 1; transform: translateX(var(--ilc-logistics-package-distance)); }
+  25%, 100% { opacity: 0; transform: translateX(var(--ilc-logistics-package-distance)); }
+}
+
+/* Caixa no garfo da empilhadeira: surge quando chega da esteira,
+   some quando é depositada no semi-reboque */
+@keyframes ilc-logistics-package-on-forklift {
+  0%, 24% { opacity: 0; }
+  27%, 38% { opacity: 1; }
+  42%, 100% { opacity: 0; }
+}
+
+/* Caixa no semi-reboque: surge quando a empilhadeira deposita,
+   some quando a carreta entrega no armazém e volta vazia de ré */
+@keyframes ilc-logistics-package-on-trailer {
+  0%, 41% { opacity: 0; }
+  45%, 66% { opacity: 1; }
+  70%, 92% { opacity: 0; }
+  96%, 100% { opacity: 0; }
+}
+
+/* Empilhadeira: parada até carregar, vai até a carreta e retorna */
+@keyframes ilc-logistics-forklift-move {
+  0%, 26% { transform: translateX(0); }
+  38% { transform: translateX(var(--ilc-logistics-forklift-distance)); }
+  46% { transform: translateX(var(--ilc-logistics-forklift-distance)); }
+  58% { transform: translateX(0); }
+  100% { transform: translateX(0); }
+}
+
+/* Carreta (cavalo + reboque + semi-reboque): parte carregada, entrega no armazém e volta de ré */
+@keyframes ilc-logistics-trailer-drive {
+  0%, 48% { transform: translateX(0); }
+  66% { transform: translateX(var(--ilc-logistics-trailer-distance)); }
+  76% { transform: translateX(var(--ilc-logistics-trailer-distance)); }
+  96% { transform: translateX(0); }
+  100% { transform: translateX(0); }
+}
+
+/* Quadrado pequeno no armazém: surge quando a carreta chega */
+@keyframes ilc-logistics-package-arrived {
+  0%, 66% { opacity: 0; transform: translateY(4px); }
+  71%, 88% { opacity: 1; transform: translateY(0); }
+  92%, 100% { opacity: 0; transform: translateY(-2px); }
+}
+
+@media (max-width: 320px) {
+  .ilc-logistics-loader:not(.ilc-logistics-loader--compact) {
+    --ilc-logistics-width: 280px;
+    --ilc-logistics-belt-width: 52px;
+    --ilc-logistics-package-distance: 64px;
+    --ilc-logistics-trailer-distance: 8px;
+  }
+
+  .ilc-logistics-loader:not(.ilc-logistics-loader--compact) .ilc-logistics-loader__belt { right: 228px; }
+  .ilc-logistics-loader:not(.ilc-logistics-loader--compact) .ilc-logistics-loader__forklift { right: 176px; }
+  .ilc-logistics-loader:not(.ilc-logistics-loader--compact) .ilc-logistics-loader__trailer { right: 60px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ilc-logistics-loader__belt,
+  .ilc-logistics-loader__package,
+  .ilc-logistics-loader__forklift,
+  .ilc-logistics-loader__trailer {
+    animation: none;
+  }
+
+  .ilc-logistics-loader__package--belt { opacity: 0; }
+  .ilc-logistics-loader__package--forklift { opacity: 1; }
+  .ilc-logistics-loader__package--trailer { opacity: 1; }
+  .ilc-logistics-loader__package--warehouse { opacity: 1; }
+  .ilc-logistics-loader__forklift { transform: none; }
+  .ilc-logistics-loader__trailer { transform: none; }
+}

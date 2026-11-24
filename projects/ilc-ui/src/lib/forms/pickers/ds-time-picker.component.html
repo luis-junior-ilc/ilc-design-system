@@ -1,0 +1,4 @@
+<input [id]="id()" type="time" [value]="value() ?? ''" [step]="step()" [required]="required()"
+  [disabled]="disabled()" [attr.aria-labelledby]="ariaLabelledBy() || null" [attr.aria-describedby]="ariaDescribedBy() || null"
+  [attr.aria-invalid]="ngControl?.invalid || null" (input)="onInput($event)"
+  (focus)="focused.set(true)" (blur)="focused.set(false); markTouched()" />

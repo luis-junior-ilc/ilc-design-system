@@ -1,0 +1,47 @@
+<section class="setup-guide" aria-label="Passo a passo para instalar o ILC Design System">
+  <p>Configure o acesso ao GitHub Packages uma vez e siga as etapas para usar a biblioteca em um novo app Angular.</p>
+  <ol class="setup-guide__steps">
+    <li>
+      <h3>Crie um projeto Angular standalone</h3>
+      <p>Use Angular 18 ou superior e entre na pasta criada.</p>
+      <pre><code>npx &#64;angular/cli&#64;18 new meu-app --standalone
+cd meu-app</code></pre>
+    </li>
+    <li>
+      <h3>Configure o acesso ao pacote privado</h3>
+      <p>Crie um arquivo <code>.npmrc</code> na raiz do projeto. O token precisa ter permissão <code>read:packages</code>; mantenha-o em uma variável de ambiente ou secret de CI e nunca o versione.</p>
+      <pre><code>&#64;grupo-mirassol:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=$&#123;NODE_AUTH_TOKEN&#125;</code></pre>
+    </li>
+    <li>
+      <h3>Instale o design system e os peers do Material</h3>
+      <pre><code>npm install &#64;grupo-mirassol/ilc-design-system &#64;angular/animations&#64;^18 &#64;angular/cdk&#64;^18.2 &#64;angular/material&#64;^18.2</code></pre>
+    </li>
+    <li>
+      <h3>Carregue tokens e tema globalmente</h3>
+      <p>Adicione uma vez ao arquivo <code>src/styles.scss</code>:</p>
+      <pre><code>&#64;use '&#64;grupo-mirassol/ilc-design-system/tokens/ilc-tokens';
+    &#64;import '&#64;angular/material/prebuilt-themes/azure-blue.css';</code></pre>
+    </li>
+    <li>
+      <h3>Registre as animações do Angular Material</h3>
+      <p>Necessário para os componentes Material usados por formulários e diálogos. Adicione o provider à configuração existente em <code>src/app/app.config.ts</code>:</p>
+      <pre><code>import &#123; provideAnimations &#125; from '&#64;angular/platform-browser/animations';
+
+providers: [provideAnimations()]</code></pre>
+    </li>
+    <li>
+      <h3>Importe o módulo e use um componente</h3>
+      <p>Em um componente standalone, importe <code>IlcUiModule</code> e use o seletor no template:</p>
+      <pre><code>import &#123; Component &#125; from '&#64;angular/core';
+    import &#123; IlcUiModule &#125; from '&#64;grupo-mirassol/ilc-design-system';
+
+    &#64;Component(&#123;
+  standalone: true,
+  imports: [IlcUiModule],
+  template: '&lt;ilc-button color="primary"&gt;Salvar&lt;/ilc-button&gt;',
+    &#125;)
+    export class AppComponent &#123;&#125;</code></pre>
+    </li>
+  </ol>
+</section>

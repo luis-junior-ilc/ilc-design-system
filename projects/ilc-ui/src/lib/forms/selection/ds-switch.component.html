@@ -1,0 +1,4 @@
+<button [id]="id()" type="button" role="switch" [attr.aria-checked]="!!value()" [disabled]="disabled()"
+  [attr.aria-labelledby]="ariaLabelledBy() || null" [attr.aria-describedby]="ariaDescribedBy() || null"
+  (click)="toggle()" (blur)="markTouched()"><span class="ds-switch__track"><span class="ds-switch__thumb"></span></span>
+  <span>{{ value() ? checkedText() : uncheckedText() }}</span></button>

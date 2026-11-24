@@ -1,0 +1,4 @@
+<label [for]="id()"><input [id]="id()" type="checkbox" [checked]="value() === true" [indeterminate]="indeterminate()"
+  [disabled]="disabled()" [attr.aria-label]="ariaLabel() || null" [attr.aria-labelledby]="ariaLabelledBy() || null"
+  [attr.aria-describedby]="ariaDescribedBy() || null" [attr.aria-invalid]="ngControl?.invalid || null"
+  (change)="toggle($event)" (blur)="markTouched()" /><span><ng-content /></span></label>

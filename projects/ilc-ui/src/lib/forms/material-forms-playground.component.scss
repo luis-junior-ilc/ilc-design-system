@@ -1,0 +1,24 @@
+:host { display: block; }
+.material-form { display: grid; gap: 1.25rem; }
+.material-form__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+.material-form__wide { grid-column: 1 / -1; }
+.material-form__field { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: .25rem; min-width: 0; }
+.material-form__field > mat-form-field, .material-form__field > .material-form__date-control, .material-form__field > .material-form__slider, .material-form__field > ilc-material-file-upload { grid-column: 1 / -1; grid-row: 1; min-width: 0; }
+.material-form__field > app-api-info { grid-column: 2; grid-row: 1; z-index: 1; width: auto; margin: 0; }
+.material-form__field--choice { align-items: center; }
+.material-form__field--choice > app-api-info { align-self: start; }
+.material-form__field--choice > button { justify-self: start; }
+.material-form__date-control { display: flex; align-items: center; gap: .5rem; min-width: 0; }
+.material-form__date-control mat-form-field { flex: 1; min-width: 0; }
+.material-form__fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.material-form__fieldset legend, .material-form__slider label { display: block; margin-bottom: .5rem; font-size: .875rem; font-weight: 500; }
+.material-form__fieldset mat-radio-group { display: flex; flex-wrap: wrap; gap: 1rem; }
+.material-form__slider mat-slider { width: 100%; }
+.material-form__upload { padding: 1rem; border: 1px dashed var(--mat-sys-outline, #79747e); border-radius: 8px; text-align: center; transition: background-color 120ms ease, border-color 120ms ease; }
+.material-form__upload--active { border-color: var(--mat-sys-primary, #005cbb); background: var(--mat-sys-primary-container, #d7e3ff); }
+.material-form__file-input { display: none; }
+.material-form__upload ul { display: grid; gap: .5rem; margin: 1rem 0 0; padding: 0; list-style: none; text-align: left; }
+.material-form__upload li { display: flex; align-items: center; gap: .75rem; padding: .5rem; border-top: 1px solid var(--mat-sys-outline-variant, #c4c6d0); }
+.material-form__upload li span { flex: 1; overflow-wrap: anywhere; }
+.material-form__upload img { width: 3rem; height: 3rem; border-radius: 4px; object-fit: cover; }
+@media (max-width: 640px) { .material-form__grid { grid-template-columns: minmax(0, 1fr); } .material-form__wide { grid-column: auto; } }

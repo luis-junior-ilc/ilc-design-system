@@ -1,0 +1,4 @@
+:host { display: block; min-width: 0; }
+.ilc-searchable-dropdown { width: 100%; }
+.ilc-searchable-dropdown__option-label, .ilc-searchable-dropdown__option-description { display: block; }
+.ilc-searchable-dropdown__option-description { margin-top: 2px; color: var(--mat-sys-on-surface-variant, #49454f); font-size: .75rem; }

@@ -1,0 +1,29 @@
+<mat-form-field appearance="outline" class="ilc-searchable-dropdown">
+  <mat-label>{{ label() }}</mat-label>
+  <mat-icon matPrefix aria-hidden="true">search</mat-icon>
+  <input matInput [value]="displayValue()" [placeholder]="placeholder()" [required]="required()"
+    [disabled]="disabled()" [matAutocomplete]="records" [attr.aria-labelledby]="ariaLabelledBy() || null"
+    [attr.aria-describedby]="ariaDescribedBy() || null" [attr.aria-invalid]="ngControl?.invalid || null"
+    (input)="onSearch($event)" (blur)="markTouched()" />
+  @if (value() || searchTerm()) {
+    <button mat-icon-button matSuffix type="button" aria-label="Limpar pesquisa" [disabled]="disabled()" (click)="clear()">
+      <mat-icon aria-hidden="true">close</mat-icon>
+    </button>
+  }
+  <mat-autocomplete #records="matAutocomplete" [autoActiveFirstOption]="true" (optionSelected)="onSelection($event)">
+    @for (option of filteredOptions(); track option.value) {
+      <mat-option [value]="option" [disabled]="option.disabled ?? false">
+        <span class="ilc-searchable-dropdown__option-label">{{ option.label }}</span>
+        @if (option.description) { <small class="ilc-searchable-dropdown__option-description">{{ option.description }}</small> }
+      </mat-option>
+    }
+    @if (canCreate()) {
+      <mat-option [value]="createChoice()">
+        <mat-icon aria-hidden="true">add</mat-icon>
+        Criar registro “{{ searchTerm().trim() }}”
+      </mat-option>
+    } @else if (!filteredOptions().length) {
+      <mat-option disabled>Nenhum registro encontrado</mat-option>
+    }
+  </mat-autocomplete>
+</mat-form-field>

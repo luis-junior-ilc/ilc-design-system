@@ -1,0 +1,19 @@
+<div class="ds-form-field__label-row">
+  <label class="ds-form-field__label-container" [id]="labelId()" [attr.for]="id()">
+    <ng-content select="ds-label" />
+  </label>
+  <ng-content select="[dsLabelAside]" />
+</div>
+
+<div class="ds-form-field__control">
+  <ng-content select="[dsPrefix]" />
+  <ng-content select="ds-input, ds-password-input, ds-search-input, ds-number-input, ds-textarea, ds-select, ds-autocomplete, ds-checkbox, ds-radio, ds-radio-group, ds-switch, ds-datepicker, ds-date-range-picker, ds-time-picker, ds-file-upload" />
+  <ng-content select="[dsSuffix]" />
+</div>
+
+<div class="ds-form-field__messages">
+  <div class="ds-form-field__hint-container" [id]="hintId()"><ng-content select="ds-hint" /></div>
+  @if (status() === 'error') {
+    <div class="ds-form-field__error-container" [id]="errorId()"><ng-content select="ds-error" /></div>
+  }
+</div>

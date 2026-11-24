@@ -1,0 +1,4 @@
+:host { display: block; flex: 1; min-width: 0; }
+textarea { display: block; width: 100%; min-height: 5rem; resize: vertical; border: 0; outline: 0; background: transparent; color: inherit; font: inherit; }
+textarea:disabled { cursor: not-allowed; }
+.ds-textarea__counter { display: block; padding: 0 0 var(--ds-spacing-xs, 4px); color: var(--ds-color-text-muted, #57606a); text-align: right; font-size: var(--ds-font-size-xs, 0.75rem); }

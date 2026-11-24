@@ -1,0 +1,76 @@
+<div class="extras">
+  <section class="extras__dropdown" aria-labelledby="searchable-dropdown-heading">
+    <h3 id="searchable-dropdown-heading">Dropdown pesquisável</h3>
+    <app-api-info [entry]="apiInfo.searchableDropdown" />
+    <p>Pesquise registros existentes ou crie um novo pelo próprio campo.</p>
+    <ilc-searchable-dropdown [formControl]="searchControl" [options]="records()" [allowCreate]="true"
+      label="Unidade" (searchChange)="onSearch($event)" (createRecord)="createRecord($event)" />
+    @if (remoteSearch()) { <small aria-live="polite">Consulta emitida: {{ remoteSearch() }}</small> }
+  </section>
+
+  <section class="extras__loader" aria-labelledby="truck-loader-heading">
+    <h3 id="truck-loader-heading">Carregamento</h3>
+    <div class="extras__loader-demo">
+      <app-api-info [entry]="apiInfo.truckLoader" />
+      <ilc-truck-loader label="Carregando pedidos" />
+    </div>
+    <div class="extras__loader-demo">
+      <app-api-info [entry]="apiInfo.logisticsLoader" />
+      <ilc-logistics-loader label="Caixa em rota para o armazém" />
+    </div>
+    <div class="extras__warehouse-grid">
+      <div class="extras__warehouse-item">
+        <h4>Armazém em linha</h4>
+        <app-api-info [entry]="apiInfo.logisticsLoaderInline" />
+        <ilc-logistics-loader label="Armazenamento em linha" [warehouse]="'inline'" />
+      </div>
+      <div class="extras__warehouse-item">
+        <h4>Armazém empilhado</h4>
+        <app-api-info [entry]="apiInfo.logisticsLoaderStacked" />
+        <ilc-logistics-loader label="Empilhamento vertical" [warehouse]="'stacked'" />
+      </div>
+      <div class="extras__warehouse-item">
+        <h4>Armazém ampliado</h4>
+        <app-api-info [entry]="apiInfo.logisticsLoaderExpanded" />
+        <ilc-logistics-loader label="Operação ampliada" [warehouse]="'expanded'" />
+      </div>
+    </div>
+  </section>
+
+  <section class="extras__dialogs" aria-labelledby="dialogs-heading">
+    <h3 id="dialogs-heading">Modais</h3>
+    <app-api-info [entry]="apiInfo.dialog" />
+    <div class="extras__actions">
+      <button mat-flat-button color="primary" type="button" (click)="showInfo()">Abrir informativo</button>
+      <button mat-stroked-button type="button" (click)="confirmAction()">Abrir confirmação</button>
+    </div>
+  </section>
+
+  <section class="extras__metrics" aria-labelledby="metrics-heading">
+    <h3 id="metrics-heading">Indicadores</h3>
+    <app-api-info [entry]="apiInfo.metricCard" />
+    <div class="extras__metric-grid">
+      @for (metric of metrics; track metric.title) {
+        <ilc-metric-card [title]="metric.title" [value]="metric.value" [detail]="metric.detail"
+          [icon]="metric.icon" [tone]="metric.tone" />
+      }
+    </div>
+  </section>
+
+  <section class="extras__scroll" aria-labelledby="scroll-area-heading">
+    <h3 id="scroll-area-heading">Barra de rolagem moderna</h3>
+    <app-api-info [entry]="apiInfo.scrollArea" />
+    <p>O componente detecta o overflow real do conteudo e exibe indicadores de posicao.</p>
+    <div class="extras__scroll-grid">
+      @for (size of scrollSizes; track size) {
+        <ilc-scroll-area class="extras__scroll-box" [size]="size" [label]="'Lista com barra ' + size">
+          <ul class="extras__scroll-list">
+            @for (item of scrollItems; track item.id) {
+              <li>{{ item.title }} - {{ item.detail }}</li>
+            }
+          </ul>
+        </ilc-scroll-area>
+      }
+    </div>
+  </section>
+</div>

@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  color: var(--ds-color-text, #24292f);
+  font: inherit;
+}
+
+.ds-form-field__label-row { display: flex; align-items: baseline; justify-content: space-between; gap: var(--ds-spacing-sm, 8px); margin-bottom: var(--ds-spacing-xs, 4px); }
+.ds-form-field__label-container { font-size: var(--ds-font-size-sm, 0.875rem); font-weight: 600; }
+.ds-form-field__control { display: flex; align-items: center; gap: var(--ds-spacing-sm, 8px); min-height: 2.75rem; padding: 0 var(--ds-spacing-sm, 8px); border: 1px solid var(--ds-color-border, #8b949e); border-radius: var(--ds-border-radius, 4px); background: var(--ds-color-surface, #fff); }
+.ds-form-field__control:focus-within { border-color: var(--ds-color-primary, #0969da); outline: 2px solid color-mix(in srgb, var(--ds-color-primary, #0969da) 22%, transparent); outline-offset: 1px; }
+.ds-form-field__messages { display: grid; gap: 2px; min-height: 1.25rem; margin-top: var(--ds-spacing-xs, 4px); font-size: var(--ds-font-size-xs, 0.75rem); }
+.ds-form-field__hint-container { color: var(--ds-color-text-muted, #57606a); }
+.ds-form-field__error-container, :host([data-status='error']) .ds-form-field__control { color: var(--ds-color-error, #cf222e); }
+.ds-form-field__error-container { color: var(--ds-color-error, #cf222e); }
+:host([data-status='success']) .ds-form-field__control { border-color: var(--ds-color-success, #1a7f37); }
+:host(.ds-form-field--disabled) { opacity: 0.62; }
+:host(.ds-form-field--readonly) .ds-form-field__control { background: var(--ds-color-surface-muted, #f6f8fa); }

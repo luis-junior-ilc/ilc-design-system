@@ -1,0 +1,7 @@
+<input [id]="id()" type="search" [value]="value() ?? ''" [placeholder]="placeholder()" [disabled]="disabled()"
+  [attr.aria-label]="ariaLabel()" [attr.aria-labelledby]="ariaLabelledBy() || null"
+  [attr.aria-describedby]="ariaDescribedBy() || null" [attr.aria-invalid]="ngControl?.invalid || null"
+  (input)="onInput($event)" (focus)="focused.set(true)" (blur)="focused.set(false); markTouched()" />
+@if (value()) {
+  <button type="button" [disabled]="disabled()" aria-label="Clear search" (click)="clear()">Clear</button>
+}

@@ -1,0 +1,17 @@
+<div #viewport class="ilc-scroll-area__viewport" role="region" [attr.aria-label]="label()" tabindex="0">
+  <ng-content />
+</div>
+
+@if (showScrollbar()) {
+  <div class="ilc-scroll-area__scrollbar" [class.ilc-scroll-area__scrollbar--vertical]="hasOverflowY()"
+    [class.ilc-scroll-area__scrollbar--horizontal]="hasOverflowX()" aria-hidden="true">
+    @if (hasOverflowY()) {
+      <div class="ilc-scroll-area__thumb ilc-scroll-area__thumb--vertical"
+        [style.height.%]="verticalThumb() * 100" [style.top.%]="verticalOffset() * 100"></div>
+    }
+    @if (hasOverflowX()) {
+      <div class="ilc-scroll-area__thumb ilc-scroll-area__thumb--horizontal"
+        [style.width.%]="horizontalThumb() * 100" [style.left.%]="horizontalOffset() * 100"></div>
+    }
+  </div>
+}

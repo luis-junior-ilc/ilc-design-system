@@ -1,0 +1,3 @@
+<label [for]="id()"><input [id]="id()" type="radio" [value]="optionValue()" [checked]="checked()" [disabled]="disabled()"
+  [attr.aria-labelledby]="ariaLabelledBy() || null" [attr.aria-describedby]="ariaDescribedBy() || null"
+  (change)="select()" (blur)="markTouched()" /><span><ng-content /></span></label>

@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+.ilc-accordion {
+  display: grid;
+  gap: var(--ilc-spacing-3);
+}

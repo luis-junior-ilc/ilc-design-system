@@ -1,0 +1,19 @@
+{
+  "name": "@grupo-mirassol/ilc-design-system",
+  "version": "1.0.9",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "peerDependencies": {
+    "@angular/animations": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0",
+    "@angular/cdk": "^18.2.14",
+    "@angular/material": "^18.2.14"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

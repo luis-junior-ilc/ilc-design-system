@@ -1,0 +1,11 @@
+<div class="ds-date-range__inputs" role="group" [attr.aria-labelledby]="ariaLabelledBy() || null" [attr.aria-describedby]="ariaDescribedBy() || null">
+  <label [for]="id() + '-start'">From</label>
+  <input [id]="id() + '-start'" type="date" [value]="value()?.start ?? ''" [min]="min() || null"
+    [max]="value()?.end || max() || null" [disabled]="disabled()" [attr.aria-invalid]="rangeInvalid() || ngControl?.invalid || null"
+    (input)="change('start', $event)" (blur)="markTouched()" />
+  <label [for]="id() + '-end'">To</label>
+  <input [id]="id() + '-end'" type="date" [value]="value()?.end ?? ''" [min]="value()?.start || min() || null"
+    [max]="max() || null" [disabled]="disabled()" [attr.aria-invalid]="rangeInvalid() || ngControl?.invalid || null"
+    (input)="change('end', $event)" (blur)="markTouched()" />
+</div>
+@if (rangeInvalid()) { <span class="ds-date-range__error" role="alert">End date must be after start date.</span> }

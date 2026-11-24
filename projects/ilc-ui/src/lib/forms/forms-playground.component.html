@@ -1,0 +1,88 @@
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <ds-form-field #nameField [status]="status(form.controls.fullName)">
+    <ds-label>Full name</ds-label>
+    <ds-input formControlName="fullName" [id]="nameField.id()" [ariaLabelledBy]="nameField.labelId()" [ariaDescribedBy]="nameField.describedBy()" autocomplete="name" />
+    <ds-hint>Enter at least 3 characters.</ds-hint>
+    @if (form.controls.fullName.hasError('required')) { <ds-error>Name is required.</ds-error> }
+    @else if (form.controls.fullName.hasError('minlength')) { <ds-error>Use at least 3 characters.</ds-error> }
+  </ds-form-field>
+
+  <ds-form-field #emailField [status]="status(form.controls.email)">
+    <ds-label>Work email</ds-label>
+    <ds-input formControlName="email" type="email" [id]="emailField.id()" [ariaLabelledBy]="emailField.labelId()" [ariaDescribedBy]="emailField.describedBy()" autocomplete="email" />
+    <ds-hint>Use your &#64;grupo-mirassol.com address.</ds-hint>
+    @if (form.controls.email.hasError('required')) { <ds-error>Email is required.</ds-error> }
+    @else if (form.controls.email.hasError('email')) { <ds-error>Enter a valid email address.</ds-error> }
+    @else if (form.controls.email.hasError('companyEmail')) { <ds-error>Use your company email address.</ds-error> }
+  </ds-form-field>
+
+  <ds-form-field #passwordField [status]="status(form.controls.password)">
+    <ds-label>Password</ds-label>
+    <ds-password-input formControlName="password" [id]="passwordField.id()" [ariaDescribedBy]="passwordField.describedBy()" />
+    <ds-hint>Use at least 12 characters.</ds-hint>
+    @if (form.controls.password.invalid && form.controls.password.touched) { <ds-error>Password does not meet the minimum length.</ds-error> }
+  </ds-form-field>
+
+  <ds-form-field #searchField>
+    <ds-label>Search</ds-label>
+    <ds-search-input formControlName="search" [id]="searchField.id()" />
+  </ds-form-field>
+
+  <ds-form-field #departmentField [status]="status(form.controls.department)">
+    <ds-label>Department</ds-label>
+    <ds-select formControlName="department" [options]="departments" [id]="departmentField.id()" [ariaLabelledBy]="departmentField.labelId()" [ariaDescribedBy]="departmentField.describedBy()" />
+    @if (form.controls.department.invalid && form.controls.department.touched) { <ds-error>Select a department.</ds-error> }
+  </ds-form-field>
+
+  <ds-form-field #cityField>
+    <ds-label>City</ds-label>
+    <ds-autocomplete formControlName="city" [options]="suggestions" [id]="cityField.id()" [ariaLabel]="'City'" />
+  </ds-form-field>
+
+  <ds-form-field #quantityField [status]="status(form.controls.quantity)">
+    <ds-label>Quantity</ds-label>
+    <ds-number-input formControlName="quantity" [id]="quantityField.id()" [min]="1" [max]="99" />
+    @if (form.controls.quantity.invalid && form.controls.quantity.touched) { <ds-error>Quantity must be from 1 to 99.</ds-error> }
+  </ds-form-field>
+
+  <ds-form-field #notesField [status]="status(form.controls.notes)">
+    <ds-label>Notes</ds-label>
+    <ds-textarea formControlName="notes" [id]="notesField.id()" [maxlength]="240" [autoResize]="true" />
+  </ds-form-field>
+
+  <ds-form-field>
+    <ds-label>Plan</ds-label>
+    <ds-radio-group formControlName="plan" legend="Choose a plan" [options]="plans" orientation="horizontal" />
+  </ds-form-field>
+
+  <ds-form-field>
+    <ds-label>Notifications</ds-label>
+    <ds-switch formControlName="notifications" />
+  </ds-form-field>
+
+  <ds-checkbox formControlName="accepted">I accept the terms</ds-checkbox>
+
+  <ds-form-field #dateField [status]="status(form.controls.startDate)">
+    <ds-label>Start date</ds-label>
+    <ds-datepicker formControlName="startDate" [id]="dateField.id()" />
+    @if (form.controls.startDate.invalid && form.controls.startDate.touched) { <ds-error>Choose a start date.</ds-error> }
+  </ds-form-field>
+
+  <ds-form-field #timeField>
+    <ds-label>Preferred time</ds-label>
+    <ds-time-picker formControlName="time" [id]="timeField.id()" />
+  </ds-form-field>
+
+  <ds-form-field #rangeField>
+    <ds-label>Date range</ds-label>
+    <ds-date-range-picker formControlName="dateRange" [id]="rangeField.id()" />
+  </ds-form-field>
+
+  <ds-form-field #filesField>
+    <ds-label>Attachments</ds-label>
+    <ds-file-upload formControlName="attachments" [id]="filesField.id()" accept=".pdf,.png,.jpg" [multiple]="true" [maxSizeMb]="8" />
+  </ds-form-field>
+
+  <button type="submit">Submit</button>
+  @if (submitted()) { <p role="status">Form submitted successfully.</p> }
+</form>

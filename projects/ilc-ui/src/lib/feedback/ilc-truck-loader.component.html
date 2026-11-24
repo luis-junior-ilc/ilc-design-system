@@ -1,0 +1,8 @@
+@if (active()) {
+  <div class="ilc-truck-loader" [class.ilc-truck-loader--compact]="compact()" role="status" aria-live="polite">
+    <span class="ilc-truck-loader__road" aria-hidden="true">
+      <mat-icon class="ilc-truck-loader__truck">local_shipping</mat-icon>
+    </span>
+    <span class="ilc-truck-loader__label">{{ label() }}</span>
+  </div>
+}
