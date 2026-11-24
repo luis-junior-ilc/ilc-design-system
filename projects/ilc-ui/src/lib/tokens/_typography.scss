@@ -1,8 +1,40 @@
 :root {
-  --ilc-font-family: Roboto, Arial, sans-serif;
-  --ilc-font-size-xs: 12px;
-  --ilc-font-size-sm: 14px;
-  --ilc-font-size-md: 16px;
-  --ilc-font-size-lg: 18px;
-  --ilc-font-size-xl: 24px;
+  /* Font families (BrandBook ILC: Pirulen institucional, Hind primária, Calibri secundária) */
+  --ilc-font-family-display: 'Pirulen', 'Orbitron', 'Eurostile', sans-serif;
+  --ilc-font-family-sans: 'Hind', 'Calibri', 'Roboto', Arial, sans-serif;
+  --ilc-font-family-secondary: 'Calibri', 'Hind', Arial, sans-serif;
+  --ilc-font-family: var(--ilc-font-family-sans);
+
+  /* Type scale */
+  --ilc-font-size-xs: 0.75rem;      /* 12px */
+  --ilc-font-size-sm: 0.875rem;     /* 14px */
+  --ilc-font-size-md: 1rem;         /* 16px */
+  --ilc-font-size-lg: 1.125rem;     /* 18px */
+  --ilc-font-size-xl: 1.5rem;       /* 24px */
+  --ilc-font-size-2xl: 2rem;        /* 32px */
+  --ilc-font-size-display: 2.5rem;  /* 40px */
+
+  /* Weights (Hind: Light 300, Regular 400, Medium 500, SemiBold 600, Bold 700) */
+  --ilc-font-weight-light: 300;
+  --ilc-font-weight-regular: 400;
+  --ilc-font-weight-medium: 500;
+  --ilc-font-weight-semibold: 600;
+  --ilc-font-weight-bold: 700;
+
+  /* Line heights */
+  --ilc-line-height-tight: 1.2;
+  --ilc-line-height-normal: 1.5;
+  --ilc-line-height-relaxed: 1.65;
+
+  /* Letter spacing */
+  --ilc-letter-spacing-tight: -0.015em;
+  --ilc-letter-spacing-normal: 0;
+  --ilc-letter-spacing-wide: 0.06em;
+  --ilc-letter-spacing-display: 0.08em;
+}
+
+/* Angular Material 3 typography alignment */
+html:root {
+  --mat-sys-plain-font-family: var(--ilc-font-family);
+  --mat-sys-brand-font-family: var(--ilc-font-family-display);
 }

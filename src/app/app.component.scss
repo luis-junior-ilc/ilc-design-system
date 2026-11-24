@@ -33,7 +33,12 @@
 }
 
 h1, h2, h3, p { margin-top: 0; }
-h1 { margin-bottom: var(--ilc-spacing-2); font-size: clamp(30px, 4vw, 42px); }
+h1 {
+  margin-bottom: var(--ilc-spacing-2);
+  font-family: var(--ilc-font-family-display);
+  font-size: clamp(26px, 3.6vw, 38px);
+  letter-spacing: var(--ilc-letter-spacing-display);
+}
 h2 { margin-bottom: var(--ilc-spacing-2); font-size: var(--ilc-font-size-xl); }
 h3 { margin-bottom: var(--ilc-spacing-4); font-size: var(--ilc-font-size-md); text-transform: capitalize; }
 .intro, .showcase__section > p { color: var(--ilc-color-text-secondary); }

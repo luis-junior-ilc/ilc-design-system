@@ -98,8 +98,16 @@
           <h3 id="token-typography-title">Tipografia</h3>
           <div class="token-typography">
             <div class="token-type-row">
-              <div class="token-type-row__meta"><strong>Família</strong><code>--ilc-font-family</code></div>
+              <div class="token-type-row__meta"><strong>Institucional (Pirulen)</strong><code>--ilc-font-family-display</code></div>
+              <span class="token-type-sample" [style.font-family]="'var(--ilc-font-family-display)'">ILC INTEGRATOR</span>
+            </div>
+            <div class="token-type-row">
+              <div class="token-type-row__meta"><strong>Primária (Hind)</strong><code>--ilc-font-family</code></div>
               <span class="token-type-sample" [style.font-family]="'var(--ilc-font-family)'">Aa Bb Cc 0123</span>
+            </div>
+            <div class="token-type-row">
+              <div class="token-type-row__meta"><strong>Secundária (Calibri)</strong><code>--ilc-font-family-secondary</code></div>
+              <span class="token-type-sample" [style.font-family]="'var(--ilc-font-family-secondary)'">Aa Bb Cc 0123</span>
             </div>
             @for (size of fontSizes; track size) {
               <div class="token-type-row">

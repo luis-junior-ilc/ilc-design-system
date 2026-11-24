@@ -61,7 +61,7 @@ export class AppComponent {
     { name: 'Text secondary', property: '--ilc-color-text-secondary' },
     { name: 'Border', property: '--ilc-color-border' }
   ];
-  readonly fontSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+  readonly fontSizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', 'display'];
   readonly spacingSteps = [1, 2, 3, 4, 5, 6, 8];
   readonly radiusSizes = ['sm', 'md', 'lg', 'pill'];
   readonly apiInfo = {
