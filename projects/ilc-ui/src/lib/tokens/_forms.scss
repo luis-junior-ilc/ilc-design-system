@@ -1,18 +1,20 @@
-:root {
-  --ds-color-primary: #075985;
-  --ds-color-primary-subtle: #e0f2fe;
-  --ds-color-text: #1f2933;
-  --ds-color-text-muted: #52606d;
-  --ds-color-border: #829ab1;
-  --ds-color-surface: #ffffff;
-  --ds-color-surface-muted: #f0f4f8;
-  --ds-color-error: #b42318;
-  --ds-color-success: #067647;
-  --ds-spacing-xs: 4px;
-  --ds-spacing-sm: 8px;
-  --ds-spacing-md: 16px;
-  --ds-border-radius: 4px;
-  --ds-font-size-xs: 0.75rem;
-  --ds-font-size-sm: 0.875rem;
-  --ds-shadow-md: 0 4px 12px rgb(16 24 40 / 16%);
+/* Unified form tokens: aliases pointing to --ilc-* so forms inherit Light/Dark themes automatically */
+:root,
+[data-theme='dark'] {
+  --ds-color-primary: var(--ilc-color-primary);
+  --ds-color-primary-subtle: var(--ilc-color-primary-subtle);
+  --ds-color-text: var(--ilc-color-text);
+  --ds-color-text-muted: var(--ilc-color-text-secondary);
+  --ds-color-border: var(--ilc-color-border);
+  --ds-color-surface: var(--ilc-color-surface-elevated);
+  --ds-color-surface-muted: var(--ilc-color-surface);
+  --ds-color-error: var(--ilc-color-danger);
+  --ds-color-success: var(--ilc-color-success);
+  --ds-spacing-xs: var(--ilc-spacing-1);
+  --ds-spacing-sm: var(--ilc-spacing-2);
+  --ds-spacing-md: var(--ilc-spacing-4);
+  --ds-border-radius: var(--ilc-radius-sm);
+  --ds-font-size-xs: var(--ilc-font-size-xs);
+  --ds-font-size-sm: var(--ilc-font-size-sm);
+  --ds-shadow-md: var(--ilc-shadow-md);
 }
