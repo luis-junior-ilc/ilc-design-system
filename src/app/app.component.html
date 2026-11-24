@@ -1,16 +1,38 @@
 <main class="showcase" [attr.data-theme]="darkMode ? 'dark' : 'light'">
+  <ilc-header
+    title="ILC Design System"
+    subtitle="Grupo Mirassol · Angular 18"
+    [showThemeToggle]="true"
+    [darkMode]="darkMode"
+    (themeToggle)="toggleTheme()"
+  />
+
   <header class="showcase__header">
     <div>
-      <p class="eyebrow">Grupo Mirassol · Angular 18</p>
+      <p class="eyebrow">Identidade Visual &amp; Componentes</p>
       <h1>ILC Design System</h1>
       <p class="intro">Galeria interativa de componentes e tokens de design.</p>
     </div>
-    <button class="theme-toggle" type="button" (click)="toggleTheme()">
-      {{ darkMode ? 'Tema claro' : 'Tema escuro' }}
-    </button>
   </header>
 
   <ilc-accordion class="showcase__accordion">
+    <ilc-accordion-item title="Marca &amp; Layout (Logo, Ribbon e Header)">
+      <section class="showcase__section" aria-label="Componentes de marca e layout">
+        <div class="color-grid">
+          <article class="color-card">
+            <h3>Logo completo (Claro / Auto)</h3>
+            <ilc-logo size="lg" [safeArea]="true" />
+          </article>
+          <article class="color-card">
+            <h3>Logo reduzido (Mark)</h3>
+            <ilc-logo variant="mark" size="lg" [safeArea]="true" />
+          </article>
+        </div>
+        <h3 style="margin-top: var(--ilc-spacing-6);">Brand Ribbon</h3>
+        <ilc-brand-ribbon height="md" [animated]="true" />
+      </section>
+    </ilc-accordion-item>
+
     <ilc-accordion-item title="Como usar em um projeto novo" [expanded]="true">
       <section class="showcase__section">
         <app-setup-guide></app-setup-guide>

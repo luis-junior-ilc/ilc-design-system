@@ -15,3 +15,6 @@ export * from './lib/data-display/ilc-metric-card.component';
 export * from './lib/data-display/ilc-trips-table.component';
 export * from './lib/data-display/ilc-pagination.component';
 export * from './lib/data-display/ilc-scroll-area.component';
+export * from './lib/brand/ilc-logo.component';
+export * from './lib/brand/ilc-brand-ribbon.component';
+export * from './lib/layout/ilc-header.component';

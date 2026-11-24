@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  width: 100%;
+  --ilc-ribbon-height: 5px;
+}
+
+:host([data-height='xs']) { --ilc-ribbon-height: 3px; }
+:host([data-height='md']) { --ilc-ribbon-height: 8px; }
+
+.ilc-brand-ribbon {
+  display: block;
+  width: 100%;
+  height: var(--ilc-ribbon-height);
+  background: var(--ilc-gradient-brand, linear-gradient(90deg, #07b1d6 0%, #00943e 48%, #ffe109 100%));
+  background-size: 200% 100%;
+}
+
+:host(.ilc-brand-ribbon--animated) .ilc-brand-ribbon {
+  animation: ilc-ribbon-flow 8s ease infinite;
+}
+
+@keyframes ilc-ribbon-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host(.ilc-brand-ribbon--animated) .ilc-brand-ribbon {
+    animation: none;
+  }
+}

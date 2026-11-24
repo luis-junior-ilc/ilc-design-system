@@ -1,0 +1,64 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  --ilc-logo-text-color: var(--ilc-color-brand-gray, #515052);
+  --ilc-logo-mark-size: 40px;
+}
+
+:host([data-size='sm']) { --ilc-logo-mark-size: 28px; }
+:host([data-size='lg']) { --ilc-logo-mark-size: 56px; }
+
+:host([data-logo-theme='light']) { --ilc-logo-text-color: #515052; }
+:host([data-logo-theme='dark']) { --ilc-logo-text-color: #ffffff; }
+
+:host-context([data-theme='dark']):host([data-logo-theme='auto']) {
+  --ilc-logo-text-color: #ffffff;
+}
+
+:host(.ilc-logo--safe-area) {
+  padding: calc(var(--ilc-logo-mark-size) * 0.25);
+}
+
+.ilc-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--ilc-logo-mark-size) * 0.24);
+  user-select: none;
+}
+
+.ilc-logo__emblem {
+  width: var(--ilc-logo-mark-size);
+  height: var(--ilc-logo-mark-size);
+  flex: 0 0 auto;
+}
+
+.ilc-logo__wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+  color: var(--ilc-logo-text-color);
+  font-family: var(--ilc-font-family-display);
+  font-style: italic;
+}
+
+.ilc-logo__acronym {
+  font-size: calc(var(--ilc-logo-mark-size) * 0.62);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 0.92;
+}
+
+.ilc-logo__tagline {
+  margin-top: calc(var(--ilc-logo-mark-size) * 0.08);
+  font-size: calc(var(--ilc-logo-mark-size) * 0.175);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.1;
+}
+
+.ilc-logo__subtagline {
+  font-size: calc(var(--ilc-logo-mark-size) * 0.13);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.15;
+}

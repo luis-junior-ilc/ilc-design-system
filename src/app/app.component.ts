@@ -3,11 +3,14 @@ import { Component, inject } from '@angular/core';
 import {
   IlcAccordionComponent,
   IlcAccordionItemComponent,
+  IlcBrandRibbonComponent,
   IlcButtonColor,
   IlcButtonComponent,
   IlcDialogService,
+  IlcHeaderComponent,
   IlcIconComponent,
   IlcIconName,
+  IlcLogoComponent,
   IlcTrip,
   IlcTripsTableComponent
 } from '../../projects/ilc-ui/src/public-api';
@@ -19,7 +22,7 @@ import { ApiInfoComponent } from './api-info.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IlcAccordionComponent, IlcAccordionItemComponent, IlcButtonComponent, IlcIconComponent, IlcTripsTableComponent, MaterialFormsPlaygroundComponent, ShowcaseExtrasComponent, SetupGuideComponent, ApiInfoComponent],
+  imports: [IlcAccordionComponent, IlcAccordionItemComponent, IlcBrandRibbonComponent, IlcButtonComponent, IlcHeaderComponent, IlcIconComponent, IlcLogoComponent, IlcTripsTableComponent, MaterialFormsPlaygroundComponent, ShowcaseExtrasComponent, SetupGuideComponent, ApiInfoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

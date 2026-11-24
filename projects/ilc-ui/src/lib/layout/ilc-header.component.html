@@ -1,0 +1,39 @@
+<header class="ilc-header">
+  <div class="ilc-header__inner">
+    <div class="ilc-header__brand">
+      <ilc-logo size="sm" [theme]="variant === 'navy' ? 'dark' : 'auto'" />
+      @if (title || subtitle) {
+        <span class="ilc-header__divider" aria-hidden="true"></span>
+        <div class="ilc-header__titles">
+          @if (title) {
+            <strong class="ilc-header__title">{{ title }}</strong>
+          }
+          @if (subtitle) {
+            <span class="ilc-header__subtitle">{{ subtitle }}</span>
+          }
+        </div>
+      }
+    </div>
+
+    <nav class="ilc-header__nav" aria-label="Navegação principal">
+      <ng-content select="[ilcHeaderNav]"></ng-content>
+    </nav>
+
+    <div class="ilc-header__actions">
+      <ng-content select="[ilcHeaderActions]"></ng-content>
+      @if (showThemeToggle) {
+        <button
+          class="ilc-header__theme-btn"
+          type="button"
+          (click)="themeToggle.emit()"
+          [attr.aria-label]="darkMode ? 'Ativar tema claro' : 'Ativar tema escuro'"
+        >
+          {{ darkMode ? 'Tema claro' : 'Tema escuro' }}
+        </button>
+      }
+    </div>
+  </div>
+  @if (showRibbon) {
+    <ilc-brand-ribbon height="xs" />
+  }
+</header>

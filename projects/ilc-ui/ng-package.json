@@ -6,6 +6,11 @@
       "glob": "*.scss",
       "input": "src/lib/tokens",
       "output": "tokens"
+    },
+    {
+      "glob": "**/*",
+      "input": "src/lib/assets",
+      "output": "assets"
     }
   ],
   "lib": {
