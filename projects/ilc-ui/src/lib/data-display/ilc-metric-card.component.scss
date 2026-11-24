@@ -1,9 +1,56 @@
-:host { display: block; min-width: 0; }
-.ilc-metric-card { min-height: 136px; padding: 18px; gap: 10px; border: 1px solid var(--ilc-metric-border, #c5d8ec); border-radius: 8px; background: var(--ilc-metric-surface, #f1f7fd); color: var(--mat-sys-on-surface, #191c20); box-shadow: none; }
-.ilc-metric-card__heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--mat-sys-on-surface-variant, #44474e); font-size: .875rem; }
-.ilc-metric-card__heading mat-icon { color: var(--ilc-metric-accent, #005cbb); }
-.ilc-metric-card__value { font-size: 1.875rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
-.ilc-metric-card__detail { color: var(--mat-sys-on-surface-variant, #44474e); font-size: .75rem; }
-:host([data-tone='teal']) { --ilc-metric-surface: #edf8f6; --ilc-metric-border: #c3e1dc; --ilc-metric-accent: #087e70; }
-:host([data-tone='amber']) { --ilc-metric-surface: #fff7e8; --ilc-metric-border: #efddb7; --ilc-metric-accent: #966300; }
-:host([data-tone='rose']) { --ilc-metric-surface: #fff2f2; --ilc-metric-border: #efcece; --ilc-metric-accent: #ad3c47; }
+:host {
+  display: block;
+  min-width: 0;
+  --ilc-metric-accent: var(--ilc-color-primary);
+  --ilc-metric-surface: color-mix(in srgb, var(--ilc-metric-accent) 7%, var(--ilc-color-surface-elevated));
+  --ilc-metric-border: color-mix(in srgb, var(--ilc-metric-accent) 26%, var(--ilc-color-border));
+}
+
+.ilc-metric-card {
+  min-height: 136px;
+  padding: var(--ilc-spacing-4, 16px) var(--ilc-spacing-5, 20px);
+  gap: var(--ilc-spacing-2, 8px);
+  border: 1px solid var(--ilc-metric-border);
+  border-radius: var(--ilc-radius-md, 8px);
+  background: var(--ilc-metric-surface);
+  color: var(--ilc-color-text);
+  box-shadow: var(--ilc-shadow-sm);
+}
+
+.ilc-metric-card__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ilc-spacing-3, 12px);
+  color: var(--ilc-color-text-secondary);
+  font-size: var(--ilc-font-size-sm, 0.875rem);
+  font-weight: var(--ilc-font-weight-medium, 500);
+}
+
+.ilc-metric-card__heading mat-icon {
+  color: var(--ilc-metric-accent);
+}
+
+.ilc-metric-card__value {
+  font-size: 1.875rem;
+  font-weight: var(--ilc-font-weight-bold, 700);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.ilc-metric-card__detail {
+  color: var(--ilc-color-text-secondary);
+  font-size: var(--ilc-font-size-xs, 0.75rem);
+}
+
+:host([data-tone='teal']) {
+  --ilc-metric-accent: var(--ilc-color-brand-cyan);
+}
+
+:host([data-tone='amber']) {
+  --ilc-metric-accent: var(--ilc-color-warning);
+}
+
+:host([data-tone='rose']) {
+  --ilc-metric-accent: var(--ilc-color-danger);
+}

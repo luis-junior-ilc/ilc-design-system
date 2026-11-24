@@ -1,5 +1,16 @@
-:host { display: block; border-top: 1px solid var(--mat-sys-outline-variant, #c4c6d0); }
-:host ::ng-deep .mat-mdc-paginator { background: transparent; }
+:host {
+  display: block;
+  border-top: 1px solid var(--ilc-color-border);
+}
+
+:host ::ng-deep .mat-mdc-paginator {
+  background: transparent;
+  color: var(--ilc-color-text);
+}
+
 @media (max-width: 520px) {
-  :host ::ng-deep .mat-mdc-paginator-container { justify-content: center; padding: 0 8px; }
+  :host ::ng-deep .mat-mdc-paginator-container {
+    justify-content: center;
+    padding: 0 var(--ilc-spacing-2, 8px);
+  }
 }

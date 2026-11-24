@@ -1,6 +1,7 @@
 export type IlcButtonColor =
   | 'primary'
   | 'secondary'
+  | 'brand'
   | 'success'
   | 'warning'
   | 'danger'

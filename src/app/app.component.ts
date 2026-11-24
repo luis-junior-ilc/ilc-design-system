@@ -27,7 +27,7 @@ export class AppComponent {
   private readonly dialogs = inject(IlcDialogService);
   private readonly document = inject(DOCUMENT);
   darkMode = false;
-  readonly colors: IlcButtonColor[] = ['primary', 'secondary', 'success', 'warning', 'danger', 'info'];
+  readonly colors: IlcButtonColor[] = ['primary', 'secondary', 'brand', 'success', 'warning', 'danger', 'info'];
   readonly sharedColorTokens = [
     { name: 'Primary', property: '--ilc-color-primary' },
     { name: 'Primary hover', property: '--ilc-color-primary-hover' },
@@ -91,7 +91,12 @@ export class AppComponent {
     }],
   };
   readonly sizes = [1, 2, 3] as const;
-  readonly iconNames: IlcIconName[] = ['save', 'edit', 'delete', 'search', 'add', 'close'];
+  readonly iconNames: IlcIconName[] = [
+    'save', 'edit', 'delete', 'search', 'add', 'close',
+    'truck', 'package', 'download', 'upload', 'filter',
+    'check', 'alert', 'info', 'calendar', 'user',
+    'menu', 'chevron-down', 'chevron-right', 'refresh', 'eye'
+  ];
   readonly trips: IlcTrip[] = [
     { status: 'NO PRAZO', trip: '102-39586-M', date: '02/10/2026', type: 'COLETA', route: 'RIO DE JANEIRO X RIO DE JANEIRO', driver: 'DIOGENES DE SOUZA GOMES FILHOS', plate: 'LFF9F92', situation: 'Comprovante não inserido', action: 'Solicitar comprovante' },
     { status: 'NO PRAZO', trip: '24-12851-M', date: '02/10/2026', type: 'COLETA', route: 'NAVEGANTES X SAO JOSE DOS PINHAIS', driver: 'CARLOS MAURICIO ANDREATTA SCHUINKI', plate: 'DLG8J84', situation: 'Comprovante não auditado', action: 'Auditar comprovantes' },

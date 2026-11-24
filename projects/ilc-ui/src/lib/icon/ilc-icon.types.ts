@@ -1,1 +1,22 @@
-export type IlcIconName = 'save' | 'edit' | 'delete' | 'search' | 'add' | 'close';
+export type IlcIconName =
+  | 'save'
+  | 'edit'
+  | 'delete'
+  | 'search'
+  | 'add'
+  | 'close'
+  | 'truck'
+  | 'package'
+  | 'download'
+  | 'upload'
+  | 'filter'
+  | 'check'
+  | 'alert'
+  | 'info'
+  | 'calendar'
+  | 'user'
+  | 'menu'
+  | 'chevron-down'
+  | 'chevron-right'
+  | 'refresh'
+  | 'eye';

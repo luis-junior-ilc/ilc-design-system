@@ -19,8 +19,13 @@
     padding: var(--ilc-spacing-3) var(--ilc-spacing-4);
     color: var(--ilc-color-text);
     cursor: pointer;
-    font-weight: 600;
+    font-weight: var(--ilc-font-weight-semibold, 600);
     list-style: none;
+    transition: background-color .15s ease;
+
+    &:hover {
+      background: color-mix(in srgb, var(--ilc-color-primary) 5%, transparent);
+    }
 
     &::-webkit-details-marker { display: none; }
 

@@ -14,7 +14,8 @@
   border: 1px solid transparent;
   border-radius: var(--ilc-radius-md);
   font-family: var(--ilc-font-family);
-  font-weight: 500;
+  font-weight: var(--ilc-font-weight-semibold, 600);
+  letter-spacing: 0.01em;
   cursor: pointer;
   transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .1s ease;
 
@@ -33,7 +34,8 @@
   }
 
   &--primary { --ilc-button-color: var(--ilc-color-primary); --ilc-button-color-hover: var(--ilc-color-primary-hover); }
-  &--secondary { --ilc-button-color: var(--ilc-color-secondary); --ilc-button-color-hover: var(--ilc-color-secondary-hover); }
+  &--secondary { --ilc-button-color: var(--ilc-color-secondary); --ilc-button-color-hover: var(--ilc-color-secondary-hover); --ilc-button-on-color: var(--ilc-color-on-secondary); }
+  &--brand { --ilc-button-color: var(--ilc-color-brand-cyan); --ilc-button-color-hover: var(--ilc-color-brand-cyan-bright); --ilc-button-on-color: var(--ilc-color-brand-navy); }
   &--success { --ilc-button-color: var(--ilc-color-success); --ilc-button-color-hover: var(--ilc-color-success-hover); }
   &--warning { --ilc-button-color: var(--ilc-color-warning); --ilc-button-color-hover: var(--ilc-color-warning-hover); --ilc-button-on-color: var(--ilc-color-on-warning); }
   &--danger { --ilc-button-color: var(--ilc-color-danger); --ilc-button-color-hover: var(--ilc-color-danger-hover); }

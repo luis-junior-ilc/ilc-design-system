@@ -4,8 +4,8 @@
   min-width: 0;
   min-height: 0;
   overflow: hidden;
-  --ilc-scroll-thumb: color-mix(in srgb, var(--ilc-color-primary, #1976d2) 55%, transparent);
-  --ilc-scroll-thumb-hover: var(--ilc-color-primary, #1976d2);
+  --ilc-scroll-thumb: color-mix(in srgb, var(--ilc-color-primary) 55%, transparent);
+  --ilc-scroll-thumb-hover: var(--ilc-color-primary);
   --ilc-scroll-size: 10px;
 }
 
@@ -64,5 +64,5 @@
 .ilc-scroll-area__thumb--horizontal { bottom: 0; min-width: 28px; }
 
 [data-theme='dark'] :host, :host-context([data-theme='dark']) {
-  --ilc-scroll-thumb: color-mix(in srgb, #90caf9 45%, transparent);
+  --ilc-scroll-thumb: color-mix(in srgb, var(--ilc-color-brand-cyan) 50%, transparent);
 }

@@ -1,6 +1,6 @@
-.ilc-dialog__title { display: flex; align-items: center; gap: 12px; }
-.ilc-dialog__title mat-icon { color: var(--mat-sys-primary, #005cbb); }
-.ilc-dialog__title[data-kind='success'] mat-icon { color: var(--mat-sys-tertiary, #146c2e); }
-.ilc-dialog__title[data-kind='warning'] mat-icon { color: #946200; }
-.ilc-dialog__title[data-kind='error'] mat-icon { color: var(--mat-sys-error, #ba1a1a); }
-mat-dialog-content p { margin: 0; line-height: 1.5; }
+.ilc-dialog__title { display: flex; align-items: center; gap: var(--ilc-spacing-3, 12px); }
+.ilc-dialog__title mat-icon { color: var(--ilc-color-primary); }
+.ilc-dialog__title[data-kind='success'] mat-icon { color: var(--ilc-color-success); }
+.ilc-dialog__title[data-kind='warning'] mat-icon { color: var(--ilc-color-warning); }
+.ilc-dialog__title[data-kind='error'] mat-icon { color: var(--ilc-color-danger); }
+mat-dialog-content p { margin: 0; color: var(--ilc-color-text-secondary); line-height: var(--ilc-line-height-normal, 1.5); }
