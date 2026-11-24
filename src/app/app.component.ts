@@ -3,14 +3,20 @@ import { Component, inject } from '@angular/core';
 import {
   IlcAccordionComponent,
   IlcAccordionItemComponent,
+  IlcBadgeComponent,
   IlcBrandRibbonComponent,
+  IlcBreadcrumbComponent,
+  IlcBreadcrumbItem,
   IlcButtonColor,
   IlcButtonComponent,
+  IlcCardComponent,
   IlcDialogService,
   IlcHeaderComponent,
   IlcIconComponent,
   IlcIconName,
   IlcLogoComponent,
+  IlcTabItem,
+  IlcTabsComponent,
   IlcTrip,
   IlcTripsTableComponent
 } from '../../projects/ilc-ui/src/public-api';
@@ -22,7 +28,7 @@ import { ApiInfoComponent } from './api-info.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [IlcAccordionComponent, IlcAccordionItemComponent, IlcBrandRibbonComponent, IlcButtonComponent, IlcHeaderComponent, IlcIconComponent, IlcLogoComponent, IlcTripsTableComponent, MaterialFormsPlaygroundComponent, ShowcaseExtrasComponent, SetupGuideComponent, ApiInfoComponent],
+  imports: [IlcAccordionComponent, IlcAccordionItemComponent, IlcBadgeComponent, IlcBrandRibbonComponent, IlcBreadcrumbComponent, IlcButtonComponent, IlcCardComponent, IlcHeaderComponent, IlcIconComponent, IlcLogoComponent, IlcTabsComponent, IlcTripsTableComponent, MaterialFormsPlaygroundComponent, ShowcaseExtrasComponent, SetupGuideComponent, ApiInfoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -93,6 +99,17 @@ export class AppComponent {
       parameters: ['Não possui tag nem inputs HTML. Personalize as custom properties CSS no escopo :root ou [data-theme="dark"].']
     }],
   };
+  activeShowcaseTab = 'overview';
+  readonly demoTabs: IlcTabItem[] = [
+    { id: 'overview', label: 'Torre de Controle', icon: 'truck' },
+    { id: 'orders', label: 'Pedidos', icon: 'package', badge: 12 },
+    { id: 'reports', label: 'Indicadores', icon: 'filter' }
+  ];
+  readonly demoBreadcrumbs: IlcBreadcrumbItem[] = [
+    { label: 'Portal Integrator', id: 'home' },
+    { label: 'Operações', id: 'ops' },
+    { label: 'Torre de Controle' }
+  ];
   readonly sizes = [1, 2, 3] as const;
   readonly iconNames: IlcIconName[] = [
     'save', 'edit', 'delete', 'search', 'add', 'close',

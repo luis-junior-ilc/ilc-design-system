@@ -18,3 +18,7 @@ export * from './lib/data-display/ilc-scroll-area.component';
 export * from './lib/brand/ilc-logo.component';
 export * from './lib/brand/ilc-brand-ribbon.component';
 export * from './lib/layout/ilc-header.component';
+export * from './lib/data-display/ilc-badge.component';
+export * from './lib/data-display/ilc-card.component';
+export * from './lib/navigation/ilc-tabs.component';
+export * from './lib/navigation/ilc-breadcrumb.component';

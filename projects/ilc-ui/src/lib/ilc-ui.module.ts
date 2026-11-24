@@ -6,6 +6,10 @@ import { IlcAccordionItemComponent } from './accordion/ilc-accordion-item.compon
 import { IlcLogoComponent } from './brand/ilc-logo.component';
 import { IlcBrandRibbonComponent } from './brand/ilc-brand-ribbon.component';
 import { IlcHeaderComponent } from './layout/ilc-header.component';
+import { IlcBadgeComponent } from './data-display/ilc-badge.component';
+import { IlcCardComponent } from './data-display/ilc-card.component';
+import { IlcTabsComponent } from './navigation/ilc-tabs.component';
+import { IlcBreadcrumbComponent } from './navigation/ilc-breadcrumb.component';
 
 @NgModule({
   imports: [
@@ -16,6 +20,10 @@ import { IlcHeaderComponent } from './layout/ilc-header.component';
     IlcLogoComponent,
     IlcBrandRibbonComponent,
     IlcHeaderComponent,
+    IlcBadgeComponent,
+    IlcCardComponent,
+    IlcTabsComponent,
+    IlcBreadcrumbComponent,
   ],
   exports: [
     IlcButtonComponent,
@@ -25,6 +33,10 @@ import { IlcHeaderComponent } from './layout/ilc-header.component';
     IlcLogoComponent,
     IlcBrandRibbonComponent,
     IlcHeaderComponent,
+    IlcBadgeComponent,
+    IlcCardComponent,
+    IlcTabsComponent,
+    IlcBreadcrumbComponent,
   ]
 })
 export class IlcUiModule { }

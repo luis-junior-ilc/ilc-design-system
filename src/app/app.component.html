@@ -33,6 +33,34 @@
       </section>
     </ilc-accordion-item>
 
+    <ilc-accordion-item title="Exibição de Dados &amp; Navegação (Badge, Card, Tabs, Breadcrumb)">
+      <section class="showcase__section" aria-label="Exibição de dados e navegação">
+        <ilc-breadcrumb [items]="demoBreadcrumbs" />
+
+        <div style="margin-top: var(--ilc-spacing-4);">
+          <ilc-tabs [tabs]="demoTabs" [(activeTab)]="activeShowcaseTab" />
+        </div>
+
+        <div class="button-row" style="margin-top: var(--ilc-spacing-4);">
+          <ilc-badge tone="success" [dot]="true">NO PRAZO</ilc-badge>
+          <ilc-badge tone="brand" [dot]="true">EM ROTA</ilc-badge>
+          <ilc-badge tone="warning" [dot]="true">PENDENTE</ilc-badge>
+          <ilc-badge tone="danger" [dot]="true">CRÍTICO</ilc-badge>
+          <ilc-badge tone="primary" [outline]="true">COLETA</ilc-badge>
+          <ilc-badge tone="neutral">ARQUIVADO</ilc-badge>
+        </div>
+
+        <div class="color-grid" style="margin-top: var(--ilc-spacing-5);">
+          <ilc-card title="Card institucional" subtitle="Com faixa gradiente ILC" [accentRibbon]="true" [elevated]="true">
+            <p>Aba ativa selecionada: <strong>{{ activeShowcaseTab }}</strong></p>
+            <div ilcCardFooter>
+              <ilc-button size="1" variant="outline" icon="eye">Ver detalhes</ilc-button>
+            </div>
+          </ilc-card>
+        </div>
+      </section>
+    </ilc-accordion-item>
+
     <ilc-accordion-item title="Como usar em um projeto novo" [expanded]="true">
       <section class="showcase__section">
         <app-setup-guide></app-setup-guide>
